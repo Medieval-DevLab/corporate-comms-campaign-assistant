@@ -86,6 +86,35 @@ export const campaigns = [
     subjectLineRationale:
       "Urgency-led, resource-forward — mirrors highest-performing career communications in the evidence base.",
   },
+  {
+    id: 4,
+    label: "Campaign 4",
+    title: '"Mind Matters" — Wellbeing Resource Campaign',
+    geo: "India · Technology & Innovation",
+    campaignType: "Good to Know",
+    targetAudience: "All Accenture",
+    strongestChannel: "GMA + Mailer (2-part series)",
+    peakWindow: "Thursday 2pm",
+    timingRestriction:
+      "GMA data: wellbeing content peaks Thursday afternoon — lowest meeting density window globally",
+    openRate: "38-42%",
+    clickRate: "6-10%",
+    signalStrength: "74%",
+    orgAvg: "28%",
+    increase: "↑ +13pp",
+    evidence: [
+      "New Wellbeing Resources Available — 36% open, 7% click",
+      "Mental Health First Aid Training — 35% open, 9% click",
+    ],
+    aiRationale:
+      "Mixed sentiment is the KEY signal — employees are aware of the issue but not feeling supported. A resource-forward campaign directly addresses the gap. Past wellbeing Good to Know campaigns: steady 35–38% open rate.",
+    subjectLine:
+      "Five ways Accenture supports your wellbeing — resources inside",
+    generatedAudience: "All Accenture",
+    generatedChannel: "Good to Know",
+    subjectLineRationale:
+      "Specific number ('Five ways') + promise of resources drives both opens and clicks",
+  },
 ];
 
 export const comparisonDimensions = [
