@@ -40,7 +40,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
             width: "auto",
             objectFit: "contain",
             display: "block",
-            margin: "0 auto 24px auto",
+            margin: "0 auto 36px auto",
           }}
         />
 
@@ -51,7 +51,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
             fontWeight: 700,
             color: "#111827",
             lineHeight: 1.3,
-            marginBottom: "10px",
+            marginBottom: "12px",
             letterSpacing: "-0.02em",
           }}
         >
@@ -67,7 +67,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
             color: "#6B7280",
             lineHeight: 1.6,
             maxWidth: "320px",
-            margin: "0 auto 36px auto",
+            margin: "0 auto 48px auto",
           }}
         >
           Surface campaign ideas backed by real engagement data.
