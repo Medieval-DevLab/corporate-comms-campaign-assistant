@@ -467,10 +467,10 @@ export default function Screen1({ onGenerate }) {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              width: "680px",
-              maxWidth: "90vw",
+              width: "90%",
+              maxWidth: "680px",
               backgroundColor: "#FFFFFF",
-              borderRadius: "12px",
+              borderRadius: "16px",
               overflow: "hidden",
               boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
             }}
