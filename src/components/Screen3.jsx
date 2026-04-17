@@ -184,7 +184,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                     style={{
                       fontSize: "11px",
                       fontWeight: "600",
-                      color: "#7B00D4",
+                      color: "#A100FF",
                       textTransform: "uppercase",
                       letterSpacing: "0.05em",
                     }}
@@ -221,11 +221,11 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                   <td
                     colSpan={totalColumns}
                     style={{
-                      background: "#F0EFFE",
+                      background: "#F5E6FF",
                       padding: "10px 20px",
                       fontSize: "11px",
                       fontWeight: 700,
-                      color: "#7B00D4",
+                      color: "#A100FF",
                       textTransform: "uppercase",
                       letterSpacing: "0.07em",
                       textAlign: "center",
@@ -268,7 +268,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                           style={{
                             fontSize: "12px",
                             fontWeight: 600,
-                            color: "#7B00D4",
+                            color: "#A100FF",
                           }}
                         >
                           {row.label}
@@ -299,11 +299,11 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                           style={{
                             padding: "14px 20px",
                             fontSize: "13px",
-                            color: isBest ? "#7B00D4" : "#374151",
+                            color: isBest ? "#A100FF" : "#374151",
                             fontWeight: isBest ? "600" : "400",
                             verticalAlign: "top",
                             lineHeight: "1.5",
-                            backgroundColor: isBest ? "#F5F3FF" : rowBg,
+                            backgroundColor: isBest ? "#F9F0FF" : rowBg,
                           }}
                         >
                           {Array.isArray(val)
@@ -373,7 +373,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                           style={{
                             fontSize: "12px",
                             fontWeight: 400,
-                            color: "#C4B5FD",
+                            color: "#D966FF",
                           }}
                         >
                           {row.label}

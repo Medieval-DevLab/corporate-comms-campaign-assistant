@@ -92,7 +92,7 @@ export default function Screen1({ onGenerate }) {
               <div
                 style={{
                   height: "100%",
-                  backgroundColor: "#7B00D4",
+                  backgroundColor: "#A100FF",
                   borderRadius: "999px",
                   width: `${progress}%`,
                   transition: "width 0.05s linear",
@@ -103,7 +103,7 @@ export default function Screen1({ onGenerate }) {
               style={{
                 fontSize: "18px",
                 fontWeight: "600",
-                color: "#7B00D4",
+                color: "#A100FF",
                 marginBottom: "12px",
               }}
             >
@@ -432,7 +432,7 @@ export default function Screen1({ onGenerate }) {
               transition: "background-color 0.15s, transform 0.1s",
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#8a00db")
+              (e.currentTarget.style.backgroundColor = "#8B00DB")
             }
             onMouseLeave={(e) =>
               (e.currentTarget.style.backgroundColor = "#A100FF")
@@ -478,7 +478,7 @@ export default function Screen1({ onGenerate }) {
             {/* Purple header banner */}
             <div
               style={{
-                backgroundColor: "#7B00D4",
+                backgroundColor: "#A100FF",
                 padding: "24px 32px",
                 position: "relative",
                 textAlign: "center",

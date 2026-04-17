@@ -16,8 +16,8 @@ function InfoTooltip({ text }) {
           width: "16px",
           height: "16px",
           borderRadius: "50%",
-          border: "1.5px solid #7B00D4",
-          color: "#7B00D4",
+          border: "1.5px solid #A100FF",
+          color: "#A100FF",
           fontSize: "10px",
           fontWeight: 700,
           cursor: "default",
@@ -72,7 +72,7 @@ function InfoTooltip({ text }) {
 const labelStyle = {
   fontSize: "11px",
   fontWeight: "600",
-  color: "#7B00D4",
+  color: "#A100FF",
   marginBottom: "3px",
   textTransform: "uppercase",
   letterSpacing: "0.03em",
@@ -88,7 +88,7 @@ const valueStyle = {
 const footerLabelStyle = {
   fontSize: "11px",
   fontWeight: "600",
-  color: "#7B00D4",
+  color: "#A100FF",
   textTransform: "uppercase",
   letterSpacing: "0.03em",
   marginBottom: "6px",
@@ -118,7 +118,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
   return (
     <div
       style={{
-        border: isCompare ? "2px solid #7B00D4" : "1px solid #E5E7EB",
+        border: isCompare ? "2px solid #A100FF" : "1px solid #E5E7EB",
         borderRadius: "12px",
         backgroundColor: "#FFFFFF",
         marginBottom: "28px",
@@ -146,7 +146,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         >
           <span
             style={{
-              color: "#7B00D4",
+              color: "#A100FF",
               fontSize: "12px",
               fontWeight: "700",
               lineHeight: "1.4",
@@ -203,7 +203,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               height: "22px",
               borderRadius: "999px",
               border: "none",
-              backgroundColor: isCompare ? "#7B00D4" : "#D1D5DB",
+              backgroundColor: isCompare ? "#A100FF" : "#D1D5DB",
               position: "relative",
               cursor: "pointer",
               transition: "background-color 0.2s",
@@ -326,7 +326,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
-                  color: "#7B00D4",
+                  color: "#A100FF",
                   textTransform: "uppercase",
                   letterSpacing: "0.03em",
                   marginBottom: "6px",
@@ -351,7 +351,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
-                  color: "#7B00D4",
+                  color: "#A100FF",
                   textTransform: "uppercase",
                   letterSpacing: "0.03em",
                   marginBottom: "6px",
@@ -376,7 +376,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
-                  color: "#7B00D4",
+                  color: "#A100FF",
                   textTransform: "uppercase",
                   letterSpacing: "0.03em",
                   marginBottom: "6px",
@@ -431,7 +431,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               style={{
                 fontSize: "11px",
                 fontWeight: "600",
-                color: "#7B00D4",
+                color: "#A100FF",
                 textTransform: "uppercase",
                 letterSpacing: "0.03em",
                 marginBottom: "6px",
@@ -477,7 +477,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             style={{
               fontSize: "11px",
               fontWeight: "600",
-              color: "#7B00D4",
+              color: "#A100FF",
               textTransform: "uppercase",
               letterSpacing: "0.03em",
               lineHeight: "1.4",
@@ -488,7 +488,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           <span
             style={{
               fontSize: "14px",
-              color: "#7B00D4",
+              color: "#A100FF",
               transform: rationaleOpen ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.2s ease",
               lineHeight: "1",
@@ -631,8 +631,8 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               style={{
                 fontSize: "12px",
                 fontStyle: "italic",
-                color: "#7C3AED",
-                backgroundColor: "#F5F3FF",
+                color: "#A100FF",
+                backgroundColor: "#F9F0FF",
                 padding: "8px 12px",
                 borderRadius: "6px",
                 marginTop: "10px",

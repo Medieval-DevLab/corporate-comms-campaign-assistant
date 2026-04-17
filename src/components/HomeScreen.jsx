@@ -10,7 +10,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #4A00A0 0%, #7B00D4 50%, #9B30FF 100%)",
+        background: "linear-gradient(135deg, #4A00A0 0%, #A100FF 50%, #9B30FF 100%)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -97,7 +97,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
               padding: "14px",
               fontSize: "14px",
               fontWeight: "600",
-              background: "#7B00D4",
+              background: "#A100FF",
               color: "#FFFFFF",
               border: "none",
               borderRadius: "12px",
@@ -105,8 +105,8 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
               fontFamily: "inherit",
               letterSpacing: "0.01em",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#6500B0")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#7B00D4")}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#8B00DB")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#A100FF")}
           >
             Start New Project
           </button>
@@ -119,13 +119,13 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
               fontSize: "14px",
               fontWeight: "500",
               background: "#FFFFFF",
-              color: "#7B00D4",
-              border: "1.5px solid #7B00D4",
+              color: "#A100FF",
+              border: "1.5px solid #A100FF",
               borderRadius: "12px",
               cursor: "pointer",
               fontFamily: "inherit",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#F5F3FF")}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#F9F0FF")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#FFFFFF")}
           >
             Explore Freely
@@ -207,7 +207,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
                 marginBottom: "20px",
                 boxSizing: "border-box",
               }}
-              onFocus={(e) => (e.target.style.borderColor = "#7B00D4")}
+              onFocus={(e) => (e.target.style.borderColor = "#A100FF")}
               onBlur={(e) => (e.target.style.borderColor = "#D1D5DB")}
             />
             <div style={{ display: "flex", gap: "12px", justifyContent: "flex-end" }}>
@@ -243,7 +243,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
                   padding: "9px 20px",
                   fontSize: "13px",
                   fontWeight: "600",
-                  background: nameInput.trim() ? "#7B00D4" : "#D1D5DB",
+                  background: nameInput.trim() ? "#A100FF" : "#D1D5DB",
                   color: "#FFFFFF",
                   border: "none",
                   borderRadius: "8px",

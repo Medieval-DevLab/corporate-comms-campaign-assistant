@@ -83,7 +83,7 @@ export default function Navbar({ projectName, onNavigateHome }) {
             <span style={{ fontSize: "12px", color: "#9CA3AF", margin: "0 6px" }}>
               ›
             </span>
-            <span style={{ fontSize: "14px", fontWeight: 500, color: "#7B00D4" }}>
+            <span style={{ fontSize: "14px", fontWeight: 500, color: "#A100FF" }}>
               {projectName}
             </span>
           </>
@@ -182,7 +182,7 @@ export default function Navbar({ projectName, onNavigateHome }) {
                 style={{
                   padding: "10px 16px",
                   fontSize: "13px",
-                  color: "#7B00D4",
+                  color: "#A100FF",
                   fontWeight: "600",
                   cursor: "pointer",
                 }}
