@@ -1,9 +1,30 @@
+import { useState } from "react";
+
+function EyeOpen() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+function EyeSlash() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" strokeWidth="2">
+      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+      <line x1="1" y1="1" x2="23" y2="23" />
+    </svg>
+  );
+}
+
 export default function Screen3({ selectedCampaigns, onBack }) {
+  const [hiddenAttributes, setHiddenAttributes] = useState([]);
+
   const sections = [
     {
       heading: "Campaign Overview",
       rows: [
-        { label: "Campaign Name", key: "title" },
         { label: "Campaign Type", key: "campaignType" },
         { label: "Target Audience", key: "targetAudience" },
         { label: "Geography", key: "geo" },
@@ -33,6 +54,12 @@ export default function Screen3({ selectedCampaigns, onBack }) {
     },
   ];
 
+  const toggleHide = (key) => {
+    setHiddenAttributes((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
+
   const parsePercent = (val) => {
     if (typeof val !== "string") return 0;
     const match = val.match(/(\d+)/);
@@ -51,6 +78,18 @@ export default function Screen3({ selectedCampaigns, onBack }) {
     });
     return bestIdx;
   };
+
+  const totalColumns = 1 + selectedCampaigns.length;
+
+  // Collect all hidden rows with their original metadata
+  const allHiddenRows = [];
+  sections.forEach((section) => {
+    section.rows.forEach((row) => {
+      if (hiddenAttributes.includes(row.key)) {
+        allHiddenRows.push(row);
+      }
+    });
+  });
 
   let rowCounter = 0;
 
@@ -169,21 +208,29 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           </thead>
           <tbody>
             {sections.map((section) => {
-              const sectionRows = [];
+              const visibleRows = section.rows.filter(
+                (row) => !hiddenAttributes.includes(row.key)
+              );
 
-              sectionRows.push(
+              if (visibleRows.length === 0) return null;
+
+              const result = [];
+
+              result.push(
                 <tr key={`section-${section.heading}`}>
                   <td
-                    colSpan={1 + selectedCampaigns.length}
+                    colSpan={totalColumns}
                     style={{
-                      background: "#F9FAFB",
-                      padding: "8px 20px",
+                      background: "#F0EFFE",
+                      padding: "10px 20px",
                       fontSize: "11px",
-                      fontWeight: "700",
-                      color: "#9CA3AF",
+                      fontWeight: 700,
+                      color: "#7B00D4",
                       textTransform: "uppercase",
-                      letterSpacing: "0.06em",
-                      borderTop: "1px solid #F0F0F0",
+                      letterSpacing: "0.07em",
+                      textAlign: "center",
+                      borderTop: "1px solid #E5E7EB",
+                      borderBottom: "1px solid #E5E7EB",
                     }}
                   >
                     {section.heading}
@@ -191,35 +238,56 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                 </tr>
               );
 
-              section.rows.forEach((row) => {
+              visibleRows.forEach((row) => {
                 const currentRow = rowCounter;
                 rowCounter++;
                 const isEven = currentRow % 2 === 0;
                 const rowBg = isEven ? "#FAFAFA" : "#FFFFFF";
+                const bestIdx = row.highlight ? findBestIndex(row.key) : -1;
 
-                const bestIdx = row.highlight
-                  ? findBestIndex(row.key)
-                  : -1;
-
-                sectionRows.push(
+                result.push(
                   <tr
                     key={row.key}
-                    style={{
-                      borderBottom: "1px solid #F5F5F5",
-                    }}
+                    style={{ borderBottom: "1px solid #F5F5F5" }}
                   >
                     <td
                       style={{
                         padding: "14px 20px",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        color: "#7B00D4",
                         verticalAlign: "top",
-                        whiteSpace: "nowrap",
                         backgroundColor: rowBg,
                       }}
                     >
-                      {row.label}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            color: "#7B00D4",
+                          }}
+                        >
+                          {row.label}
+                        </span>
+                        <span
+                          onClick={() => toggleHide(row.key)}
+                          style={{
+                            cursor: "pointer",
+                            marginLeft: "8px",
+                            userSelect: "none",
+                            flexShrink: 0,
+                            display: "inline-flex",
+                            alignItems: "center",
+                          }}
+                          title="Hide attribute"
+                        >
+                          <EyeOpen />
+                        </span>
+                      </div>
                     </td>
                     {selectedCampaigns.map((c, i) => {
                       const isBest = row.highlight && i === bestIdx;
@@ -240,7 +308,13 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                         >
                           {Array.isArray(val)
                             ? val.map((item, idx) => (
-                                <div key={idx} style={{ marginBottom: idx < val.length - 1 ? "4px" : 0 }}>
+                                <div
+                                  key={idx}
+                                  style={{
+                                    marginBottom:
+                                      idx < val.length - 1 ? "4px" : 0,
+                                  }}
+                                >
                                   {item}
                                 </div>
                               ))
@@ -252,8 +326,109 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                 );
               });
 
-              return sectionRows;
+              return result;
             })}
+
+            {allHiddenRows.length > 0 && (
+              <>
+                <tr key="hidden-section">
+                  <td
+                    colSpan={totalColumns}
+                    style={{
+                      background: "#F9FAFB",
+                      padding: "10px 20px",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      color: "#9CA3AF",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.07em",
+                      textAlign: "center",
+                      borderTop: "2px dashed #E5E7EB",
+                      borderBottom: "1px solid #E5E7EB",
+                    }}
+                  >
+                    Hidden Attributes
+                  </td>
+                </tr>
+                {allHiddenRows.map((row) => (
+                  <tr
+                    key={`hidden-${row.key}`}
+                    style={{ borderBottom: "1px solid #F5F5F5" }}
+                  >
+                    <td
+                      style={{
+                        padding: "14px 20px",
+                        verticalAlign: "top",
+                        backgroundColor: "#FAFAFA",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            color: "#C4B5FD",
+                          }}
+                        >
+                          {row.label}
+                        </span>
+                        <span
+                          onClick={() => toggleHide(row.key)}
+                          style={{
+                            cursor: "pointer",
+                            marginLeft: "8px",
+                            userSelect: "none",
+                            flexShrink: 0,
+                            display: "inline-flex",
+                            alignItems: "center",
+                          }}
+                          title="Restore attribute"
+                        >
+                          <EyeSlash />
+                        </span>
+                      </div>
+                    </td>
+                    {selectedCampaigns.map((c) => {
+                      const val = c[row.key];
+                      return (
+                        <td
+                          key={c.id}
+                          style={{
+                            padding: "14px 20px",
+                            fontSize: "13px",
+                            color: "#D1D5DB",
+                            fontWeight: "400",
+                            verticalAlign: "top",
+                            lineHeight: "1.5",
+                            backgroundColor: "#FAFAFA",
+                          }}
+                        >
+                          {Array.isArray(val)
+                            ? val.map((item, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    marginBottom:
+                                      idx < val.length - 1 ? "4px" : 0,
+                                  }}
+                                >
+                                  {item}
+                                </div>
+                              ))
+                            : val}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>
