@@ -7,6 +7,7 @@ export default function MultiSelectDropdown({
   options,
   selected,
   onChange,
+  multiSelect = true,
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -22,10 +23,15 @@ export default function MultiSelectDropdown({
   }, []);
 
   const toggle = (option) => {
-    const next = selected.includes(option)
-      ? selected.filter((s) => s !== option)
-      : [...selected, option];
-    onChange(next);
+    if (multiSelect) {
+      const next = selected.includes(option)
+        ? selected.filter((s) => s !== option)
+        : [...selected, option];
+      onChange(next);
+    } else {
+      onChange(selected[0] === option ? [] : [option]);
+      setOpen(false);
+    }
   };
 
   const displayText =
@@ -146,7 +152,7 @@ export default function MultiSelectDropdown({
                     (e.currentTarget.style.backgroundColor = "transparent")
                   }
                 >
-                  {/* Custom checkbox */}
+                  {/* Custom checkbox / radio */}
                   <span
                     style={{
                       display: "flex",
@@ -154,13 +160,13 @@ export default function MultiSelectDropdown({
                       justifyContent: "center",
                       width: "16px",
                       height: "16px",
-                      borderRadius: "3px",
+                      borderRadius: multiSelect ? "3px" : "50%",
                       border: "1.5px solid #A100FF",
                       backgroundColor: checked ? "#A100FF" : "#FFFFFF",
                       flexShrink: 0,
                     }}
                   >
-                    {checked && (
+                    {checked && multiSelect && (
                       <svg
                         width="10"
                         height="10"
@@ -175,6 +181,16 @@ export default function MultiSelectDropdown({
                           strokeLinejoin="round"
                         />
                       </svg>
+                    )}
+                    {checked && !multiSelect && (
+                      <span
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#FFFFFF",
+                        }}
+                      />
                     )}
                   </span>
                   {option}

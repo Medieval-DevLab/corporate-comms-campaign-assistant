@@ -267,6 +267,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             options={WINDOW_OPTIONS}
             selected={campaignWindow}
             onChange={setCampaignWindow}
+            multiSelect={false}
           />
         </div>
 
