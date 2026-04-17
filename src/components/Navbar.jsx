@@ -15,10 +15,11 @@ export default function Navbar() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <polygon points="6,4 6,16 22,10" fill="#7B00D4" />
-          <polygon points="6,20 6,32 22,26" fill="#7B00D4" />
-        </svg>
+        <img
+          src="/accenture-logo.png"
+          alt="Accenture"
+          style={{ height: "32px", width: "auto", objectFit: "contain" }}
+        />
         <div
           style={{
             width: "1px",
