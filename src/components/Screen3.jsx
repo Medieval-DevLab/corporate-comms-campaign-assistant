@@ -6,9 +6,21 @@ export default function Screen3({ selectedCampaigns, onBack }) {
       <button
         type="button"
         onClick={onBack}
-        className="mb-4 flex cursor-pointer items-center gap-1 text-sm text-gray-500 hover:text-gray-700"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "4px",
+          fontSize: "13px",
+          color: "#6B7280",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: 0,
+          marginBottom: "16px",
+          fontFamily: "inherit",
+        }}
       >
-        <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M10 12L6 8l4-4"
             stroke="currentColor"
@@ -20,27 +32,65 @@ export default function Screen3({ selectedCampaigns, onBack }) {
         Back to Results
       </button>
 
-      <h1 className="text-3xl font-bold text-gray-900">
+      <h1
+        style={{
+          fontSize: "28px",
+          fontWeight: "700",
+          color: "#111827",
+          margin: 0,
+        }}
+      >
         Campaign Comparison
       </h1>
-      <p className="mt-2 text-sm text-gray-500">
+      <p
+        style={{
+          fontSize: "14px",
+          color: "#6B7280",
+          marginTop: "6px",
+        }}
+      >
         Side-by-side comparison of your selected campaigns across key
         dimensions.
       </p>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-        <table className="w-full text-left text-sm">
+      <div
+        style={{
+          marginTop: "32px",
+          borderRadius: "12px",
+          border: "1px solid #E5E7EB",
+          backgroundColor: "#FFFFFF",
+          overflow: "hidden",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+        }}
+      >
+        <table style={{ width: "100%", textAlign: "left", fontSize: "14px", borderCollapse: "collapse" }}>
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+            <tr style={{ borderBottom: "1px solid #E5E7EB", backgroundColor: "#F9FAFB" }}>
+              <th
+                style={{
+                  padding: "14px 24px",
+                  fontSize: "12px",
+                  fontWeight: "600",
+                  color: "#6B7280",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
                 Dimension
               </th>
               {selectedCampaigns.map((c) => (
                 <th
                   key={c.id}
-                  className="px-6 py-4 text-xs font-semibold text-purple-500 uppercase tracking-wide"
+                  style={{
+                    padding: "14px 24px",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    color: "#7B00D4",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
                 >
-                  {c.name}
+                  {c.label}
                 </th>
               ))}
             </tr>
@@ -49,13 +99,25 @@ export default function Screen3({ selectedCampaigns, onBack }) {
             {comparisonDimensions.map((dim, i) => (
               <tr
                 key={dim.key}
-                className={`border-b border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}
+                style={{
+                  borderBottom: "1px solid #F3F4F6",
+                  backgroundColor: i % 2 === 0 ? "#FFFFFF" : "#F9FAFB",
+                }}
               >
-                <td className="px-6 py-4 font-medium text-gray-700">
+                <td
+                  style={{
+                    padding: "14px 24px",
+                    fontWeight: "500",
+                    color: "#374151",
+                  }}
+                >
                   {dim.label}
                 </td>
                 {selectedCampaigns.map((c) => (
-                  <td key={c.id} className="px-6 py-4 text-gray-600">
+                  <td
+                    key={c.id}
+                    style={{ padding: "14px 24px", color: "#6B7280" }}
+                  >
                     {Array.isArray(c[dim.key])
                       ? c[dim.key].join(", ")
                       : c[dim.key]}
@@ -63,19 +125,6 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                 ))}
               </tr>
             ))}
-            {/* KPIs row */}
-            <tr className="border-b border-gray-100 bg-white">
-              <td className="px-6 py-4 font-medium text-gray-700">KPIs</td>
-              {selectedCampaigns.map((c) => (
-                <td key={c.id} className="px-6 py-4 text-gray-600">
-                  <ul className="list-inside list-disc space-y-1">
-                    {c.kpis.map((kpi) => (
-                      <li key={kpi}>{kpi}</li>
-                    ))}
-                  </ul>
-                </td>
-              ))}
-            </tr>
           </tbody>
         </table>
       </div>

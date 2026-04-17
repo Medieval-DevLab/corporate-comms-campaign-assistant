@@ -4,15 +4,28 @@ function Tooltip({ text, children }) {
   const [show, setShow] = useState(false);
   return (
     <span
-      className="relative inline-flex"
+      style={{ position: "relative", display: "inline-flex", cursor: "help" }}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
       {children}
       {show && (
-        <span className="absolute bottom-full left-1/2 z-50 mb-2 w-56 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-xs text-white shadow-lg">
+        <span
+          style={{
+            position: "absolute",
+            bottom: "calc(100% + 6px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "#111827",
+            color: "#FFFFFF",
+            fontSize: "11px",
+            padding: "6px 10px",
+            borderRadius: "6px",
+            whiteSpace: "nowrap",
+            zIndex: 100,
+          }}
+        >
           {text}
-          <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900" />
         </span>
       )}
     </span>
@@ -21,220 +34,411 @@ function Tooltip({ text, children }) {
 
 function InfoIcon() {
   return (
-    <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 16 16">
-      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 7.5V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="8" cy="5.5" r="0.75" fill="currentColor" />
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      style={{ flexShrink: 0 }}
+    >
+      <circle cx="7" cy="7" r="6" stroke="#9CA3AF" strokeWidth="1.2" />
+      <path
+        d="M7 6.5V9.5"
+        stroke="#9CA3AF"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <circle cx="7" cy="4.8" r="0.6" fill="#9CA3AF" />
     </svg>
   );
 }
 
 export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
   const [subjectLine, setSubjectLine] = useState(campaign.subjectLine);
-  const [audienceEdit, setAudienceEdit] = useState(campaign.audienceSegment);
-  const [channelEdit, setChannelEdit] = useState(campaign.channel);
-  const [feedback, setFeedback] = useState(null); // "good" | "not-relevant" | null
+  const [audienceEdit, setAudienceEdit] = useState(campaign.generatedAudience);
+  const [channelEdit, setChannelEdit] = useState(campaign.generatedChannel);
+  const [feedback, setFeedback] = useState(null);
+
+  const inputStyle = {
+    width: "100%",
+    border: "1px solid #E5E7EB",
+    borderRadius: "8px",
+    padding: "10px 14px",
+    fontSize: "14px",
+    color: "#111827",
+    fontFamily: "inherit",
+    outline: "none",
+  };
+
+  const labelStyle = {
+    fontSize: "12px",
+    fontWeight: "600",
+    color: "#7B00D4",
+    marginBottom: "6px",
+  };
 
   return (
     <div
-      className={`rounded-2xl border bg-white shadow-sm transition-all ${
-        isCompare
-          ? "border-2 border-purple-500 ring-2 ring-purple-100"
-          : "border-gray-200"
-      }`}
+      style={{
+        border: isCompare ? "2px solid #7B00D4" : "1px solid #E5E7EB",
+        borderRadius: "12px",
+        backgroundColor: "#FFFFFF",
+        marginBottom: "24px",
+        overflow: "hidden",
+      }}
     >
-      {/* Header */}
-      <div className="rounded-t-2xl bg-gradient-to-r from-purple-50 to-white px-6 pt-5 pb-4">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="text-lg font-bold text-gray-900">
-              {campaign.name}
-            </h3>
-            <p className="mt-1 text-sm text-gray-500">{campaign.tagline}</p>
-          </div>
-          <button
-            type="button"
-            onClick={onToggleCompare}
-            className={`shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
-              isCompare
-                ? "bg-purple-500 text-white"
-                : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-50"
-            }`}
+      {/* ── HEADER ── */}
+      <div
+        style={{
+          padding: "16px 24px",
+          borderBottom: "1px solid #F3F4F6",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          {/* Left: label + title + geo pill */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "8px",
+              minWidth: 0,
+            }}
           >
-            {isCompare ? "Added to Compare" : "Compare"}
-          </button>
+            <span
+              style={{ fontSize: "13px", fontWeight: "600", color: "#7B00D4" }}
+            >
+              {campaign.label}
+            </span>
+            <span
+              style={{ fontSize: "16px", fontWeight: "700", color: "#111827" }}
+            >
+              {campaign.title}
+            </span>
+            <span
+              style={{
+                border: "1px solid #D1D5DB",
+                borderRadius: "999px",
+                padding: "3px 12px",
+                fontSize: "12px",
+                color: "#374151",
+                whiteSpace: "nowrap",
+              }}
+            >
+              📍 {campaign.geo}
+            </span>
+          </div>
+
+          {/* Right: Compare toggle */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexShrink: 0,
+              marginLeft: "16px",
+            }}
+          >
+            <span
+              style={{ fontSize: "13px", color: "#6B7280", marginRight: "8px" }}
+            >
+              Compare
+            </span>
+            <button
+              type="button"
+              onClick={onToggleCompare}
+              style={{
+                width: "40px",
+                height: "22px",
+                borderRadius: "999px",
+                border: "none",
+                backgroundColor: isCompare ? "#7B00D4" : "#D1D5DB",
+                position: "relative",
+                cursor: "pointer",
+                transition: "background-color 0.2s",
+              }}
+            >
+              <span
+                style={{
+                  position: "absolute",
+                  top: "2px",
+                  left: isCompare ? "20px" : "2px",
+                  width: "18px",
+                  height: "18px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FFFFFF",
+                  transition: "left 0.2s",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                }}
+              />
+            </button>
+          </div>
         </div>
 
-        {/* Quick stats row */}
-        <div className="mt-4 flex gap-4">
-          <div className="rounded-lg bg-white/80 px-3 py-2 text-center shadow-sm">
-            <p className="text-xs text-gray-500">Engagement</p>
-            <p className="text-sm font-bold text-purple-500">
-              {campaign.estimatedEngagement}
-            </p>
+        <div
+          style={{
+            fontSize: "12px",
+            color: "#9CA3AF",
+            fontStyle: "italic",
+            marginTop: "6px",
+          }}
+        >
+          Format, frequency, timing and execution to be decided by the BU.
+        </div>
+      </div>
+
+      {/* ── BODY — two columns ── */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "55% 45%",
+          gap: "32px",
+          padding: "20px 24px",
+        }}
+      >
+        {/* LEFT COLUMN */}
+        <div>
+          {/* Campaign Type */}
+          <div style={{ marginBottom: "16px" }}>
+            <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "3px" }}>
+              Campaign Type
+            </div>
+            <div style={{ fontSize: "14px", color: "#111827" }}>
+              {campaign.campaignType}
+            </div>
           </div>
-          <div className="rounded-lg bg-white/80 px-3 py-2 text-center shadow-sm">
-            <p className="text-xs text-gray-500">Best Send</p>
-            <p className="text-sm font-bold text-gray-900">
-              {campaign.bestSendTime}
-            </p>
+
+          {/* Target Audience */}
+          <div style={{ marginBottom: "16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "3px" }}>
+              <span style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4" }}>
+                Target Audience
+              </span>
+              <Tooltip text="Highest click segment for this content type in this region.">
+                <InfoIcon />
+              </Tooltip>
+            </div>
+            <div style={{ fontSize: "14px", color: "#111827" }}>
+              {campaign.targetAudience}
+            </div>
           </div>
-          <div className="rounded-lg bg-white/80 px-3 py-2 text-center shadow-sm">
-            <p className="text-xs text-gray-500">Window</p>
-            <p className="text-sm font-bold text-gray-900">
-              {campaign.campaignWindow}
-            </p>
+
+          {/* Strongest Signal Channel */}
+          <div style={{ marginBottom: "16px" }}>
+            <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "3px" }}>
+              Strongest Signal Channel
+            </div>
+            <div style={{ fontSize: "14px", color: "#111827" }}>
+              {campaign.strongestChannel}
+            </div>
+          </div>
+
+          {/* Peak Engagement Window */}
+          <div style={{ marginBottom: "16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "3px" }}>
+              <span style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4" }}>
+                Peak Engagement Window
+              </span>
+              <Tooltip text="Based on historical send data — not a scheduling recommendation.">
+                <InfoIcon />
+              </Tooltip>
+            </div>
+            <div style={{ fontSize: "14px", color: "#111827" }}>
+              {campaign.peakWindow}
+            </div>
+          </div>
+
+          {/* Timing Restriction */}
+          <div>
+            <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "3px" }}>
+              Timing Restriction
+            </div>
+            <div style={{ fontSize: "14px", color: "#6B7280" }}>
+              {campaign.timingRestriction}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div style={{ borderLeft: "1px solid #F3F4F6", paddingLeft: "32px" }}>
+          {/* 3 metrics row */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "8px",
+              marginBottom: "12px",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "4px" }}>
+                Open Rate
+              </div>
+              <div style={{ fontSize: "24px", fontWeight: "700", color: "#111827" }}>
+                {campaign.openRate}
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "4px" }}>
+                Click Rate
+              </div>
+              <div style={{ fontSize: "24px", fontWeight: "700", color: "#111827" }}>
+                {campaign.clickRate}
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "4px" }}>
+                Signal Strength
+              </div>
+              <div style={{ fontSize: "24px", fontWeight: "700", color: "#111827" }}>
+                {campaign.signalStrength}
+              </div>
+            </div>
+          </div>
+
+          {/* Org avg + Increase */}
+          <div style={{ fontSize: "13px", color: "#6B7280", marginBottom: "4px" }}>
+            Organization avg — {campaign.orgAvg}
+          </div>
+          <div style={{ fontSize: "13px", color: "#111827", marginBottom: "16px" }}>
+            Increase — <span style={{ color: "#16A34A" }}>{campaign.increase}</span>
+          </div>
+
+          {/* Evidence Base */}
+          <div>
+            <div style={{ fontSize: "12px", fontWeight: "600", color: "#7B00D4", marginBottom: "4px" }}>
+              Evidence Base
+            </div>
+            <div style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.6" }}>
+              {campaign.evidence.map((item, i) => (
+                <div key={i}>{item}</div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Body — two column */}
-      <div className="grid grid-cols-2 gap-6 px-6 py-5">
-        {/* Left column */}
-        <div className="space-y-4">
-          <div>
-            <div className="flex items-center gap-1.5">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Key Message
-              </p>
-              <Tooltip text="The central message that drives the campaign narrative">
-                <InfoIcon />
-              </Tooltip>
-            </div>
-            <p className="mt-1 text-sm text-gray-800">{campaign.keyMessage}</p>
+      {/* ── FOOTER ── */}
+      <div
+        style={{
+          borderTop: "1px solid #F3F4F6",
+          padding: "20px 24px",
+        }}
+      >
+        {/* AI Rationale */}
+        <div style={{ marginBottom: "20px" }}>
+          <div style={{ ...labelStyle }}>AI Rationale</div>
+          <div style={{ fontSize: "13px", color: "#374151", lineHeight: "1.6" }}>
+            {campaign.aiRationale}
           </div>
-
-          {campaign.bodyContent.map((block) => (
-            <div key={block.label}>
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                {block.label}
-              </p>
-              <p className="mt-1 text-sm text-gray-700">{block.value}</p>
-            </div>
-          ))}
         </div>
 
-        {/* Right column */}
-        <div className="space-y-4">
-          <div>
-            <div className="flex items-center gap-1.5">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Subject Line
-              </p>
-              <Tooltip text="Editable — click to customize the subject line">
-                <InfoIcon />
-              </Tooltip>
-            </div>
-            <input
-              type="text"
-              value={subjectLine}
-              onChange={(e) => setSubjectLine(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-purple-500 focus:outline-none"
-            />
-          </div>
+        {/* Generated Subject Line */}
+        <div style={{ marginBottom: "16px" }}>
+          <div style={{ ...labelStyle }}>Generated Subject Line</div>
+          <input
+            type="text"
+            value={subjectLine}
+            onChange={(e) => setSubjectLine(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
 
+        {/* Generated Audience + Channel */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+            marginBottom: "16px",
+          }}
+        >
           <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              Pre-header
-            </p>
-            <p className="mt-1 text-sm text-gray-700">{campaign.preHeader}</p>
-          </div>
-
-          <div>
-            <div className="flex items-center gap-1.5">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Audience
-              </p>
-              <Tooltip text="Editable — adjust the target audience">
-                <InfoIcon />
-              </Tooltip>
-            </div>
+            <div style={{ ...labelStyle }}>Generated Audience</div>
             <input
               type="text"
               value={audienceEdit}
               onChange={(e) => setAudienceEdit(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              style={inputStyle}
             />
           </div>
-
           <div>
-            <div className="flex items-center gap-1.5">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Channel
-              </p>
-              <Tooltip text="Editable — change the distribution channel">
-                <InfoIcon />
-              </Tooltip>
-            </div>
+            <div style={{ ...labelStyle }}>Generated Channel</div>
             <input
               type="text"
               value={channelEdit}
               onChange={(e) => setChannelEdit(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              style={inputStyle}
             />
           </div>
+        </div>
 
-          <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              Tone
-            </p>
-            <p className="mt-1 text-sm text-gray-700">{campaign.tone}</p>
+        {/* Subject Line Rationale */}
+        <div style={{ marginBottom: "20px" }}>
+          <div
+            style={{
+              fontSize: "12px",
+              fontWeight: "600",
+              color: "#7B00D4",
+              marginBottom: "4px",
+            }}
+          >
+            Subject Line Rationale
           </div>
-
-          <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              Visual Direction
-            </p>
-            <p className="mt-1 text-sm text-gray-700">
-              {campaign.visualDirection}
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              KPIs
-            </p>
-            <ul className="mt-1 list-inside list-disc text-sm text-gray-700">
-              {campaign.kpis.map((kpi) => (
-                <li key={kpi}>{kpi}</li>
-              ))}
-            </ul>
+          <div style={{ fontSize: "13px", color: "#6B7280" }}>
+            {campaign.subjectLineRationale}
           </div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-between border-t border-gray-100 px-6 py-4">
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-500">Was this helpful?</span>
+        {/* Feedback buttons */}
+        <div style={{ display: "flex", gap: "12px" }}>
           <button
             type="button"
             onClick={() => setFeedback(feedback === "good" ? null : "good")}
-            className={`cursor-pointer rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-              feedback === "good"
-                ? "bg-green-100 text-green-700"
-                : "border border-gray-200 text-gray-600 hover:bg-gray-50"
-            }`}
+            style={{
+              border:
+                feedback === "good"
+                  ? "1px solid #16A34A"
+                  : "1px solid #D1D5DB",
+              borderRadius: "8px",
+              padding: "8px 20px",
+              fontSize: "13px",
+              backgroundColor: feedback === "good" ? "#DCFCE7" : "#FFFFFF",
+              color: feedback === "good" ? "#16A34A" : "#374151",
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
           >
-            Looks Good
+            {feedback === "good" ? "✓ Looks Good" : "Looks Good"}
           </button>
           <button
             type="button"
             onClick={() =>
               setFeedback(feedback === "not-relevant" ? null : "not-relevant")
             }
-            className={`cursor-pointer rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-              feedback === "not-relevant"
-                ? "bg-red-100 text-red-700"
-                : "border border-gray-200 text-gray-600 hover:bg-gray-50"
-            }`}
+            style={{
+              border:
+                feedback === "not-relevant"
+                  ? "1px solid #DC2626"
+                  : "1px solid #D1D5DB",
+              borderRadius: "8px",
+              padding: "8px 20px",
+              fontSize: "13px",
+              backgroundColor:
+                feedback === "not-relevant" ? "#FEE2E2" : "#FFFFFF",
+              color: feedback === "not-relevant" ? "#DC2626" : "#374151",
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
           >
-            Not Relevant
+            {feedback === "not-relevant" ? "✕ Not Relevant" : "Not Relevant"}
           </button>
         </div>
-        <span className="rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-500">
-          {campaign.ctaText}
-        </span>
       </div>
     </div>
   );
