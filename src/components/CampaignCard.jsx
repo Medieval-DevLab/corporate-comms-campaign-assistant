@@ -66,7 +66,7 @@ const labelStyle = {
 
 const valueStyle = {
   fontSize: "13px",
-  color: "#111827",
+  color: "#374151",
   lineHeight: "1.4",
 };
 
@@ -85,6 +85,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
   const [audienceEdit, setAudienceEdit] = useState(campaign.generatedAudience);
   const [channelEdit, setChannelEdit] = useState(campaign.generatedChannel);
   const [feedback, setFeedback] = useState(null);
+  const [rationaleOpen, setRationaleOpen] = useState(false);
 
   const inputStyle = {
     width: "100%",
@@ -290,7 +291,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           {/* Timing Restriction */}
           <div>
             <div style={labelStyle}>Timing Restriction</div>
-            <div style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.4" }}>
+            <div style={{ fontSize: "13px", color: "#374151", lineHeight: "1.4" }}>
               {campaign.timingRestriction}
             </div>
           </div>
@@ -397,15 +398,15 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             <div
               style={{
                 fontSize: "12px",
-                color: "#6B7280",
+                color: "#374151",
                 marginBottom: "4px",
                 lineHeight: "1.4",
               }}
             >
               Organization avg —{" "}
-              <strong style={{ color: "#111827" }}>{campaign.orgAvg}</strong>
+              <strong style={{ color: "#374151" }}>{campaign.orgAvg}</strong>
             </div>
-            <div style={{ fontSize: "12px", color: "#111827", lineHeight: "1.4" }}>
+            <div style={{ fontSize: "12px", color: "#374151", lineHeight: "1.4" }}>
               Increase —{" "}
               <span style={{ color: "#16A34A", fontWeight: "600" }}>
                 {campaign.increase}
@@ -434,7 +435,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                   key={i}
                   style={{
                     fontSize: "12px",
-                    color: "#6B7280",
+                    color: "#374151",
                     lineHeight: "1.6",
                     display: "block",
                     marginBottom: "2px",
@@ -448,6 +449,59 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         </div>
       </div>
 
+      {/* ── AI RATIONALE ACCORDION ── */}
+      <div style={{ borderTop: "1px solid #F0F0F0", marginTop: "4px" }}>
+        <div
+          onClick={() => setRationaleOpen((v) => !v)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "14px 24px",
+            cursor: "pointer",
+            userSelect: "none",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "11px",
+              fontWeight: "600",
+              color: "#7B00D4",
+              textTransform: "uppercase",
+              letterSpacing: "0.03em",
+              lineHeight: "1.4",
+            }}
+          >
+            AI Rationale
+          </span>
+          <span
+            style={{
+              fontSize: "14px",
+              color: "#7B00D4",
+              transform: rationaleOpen ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.2s ease",
+              lineHeight: "1",
+            }}
+          >
+            ▾
+          </span>
+        </div>
+        {rationaleOpen && (
+          <div style={{ padding: "0 24px 20px" }}>
+            <p
+              style={{
+                fontSize: "12px",
+                color: "#374151",
+                lineHeight: "1.7",
+                margin: 0,
+              }}
+            >
+              {campaign.aiRationale}
+            </p>
+          </div>
+        )}
+      </div>
+
       {/* ── FOOTER ── */}
       <div
         style={{
@@ -456,20 +510,6 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           backgroundColor: "#FFFFFF",
         }}
       >
-        {/* AI Rationale */}
-        <div style={{ marginBottom: "20px" }}>
-          <div style={footerLabelStyle}>AI Rationale</div>
-          <div
-            style={{
-              fontSize: "12px",
-              color: "#374151",
-              lineHeight: "1.7",
-            }}
-          >
-            {campaign.aiRationale}
-          </div>
-        </div>
-
         {/* Generated Subject Line */}
         <div style={{ marginBottom: "16px" }}>
           <div style={footerLabelStyle}>Generated Subject Line</div>
@@ -518,7 +558,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           <div
             style={{
               fontSize: "12px",
-              color: "#6B7280",
+              color: "#374151",
               lineHeight: "1.6",
             }}
           >
