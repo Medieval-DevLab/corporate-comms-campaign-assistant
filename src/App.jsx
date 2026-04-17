@@ -6,14 +6,25 @@ import Screen3 from "./components/Screen3";
 import HowItWorks from "./components/HowItWorks";
 
 export default function App() {
-  const [screen, setScreen] = useState("input"); // "input" | "output" | "compare" | "how"
+  const [screen, setScreen] = useState("input");
   const [comparedCampaigns, setComparedCampaigns] = useState([]);
 
   return (
-    <div className="min-h-screen bg-[#F3F4F6]">
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#F3F4F6",
+        fontFamily: "Inter, sans-serif",
+      }}
+    >
       <Navbar />
-
-      <div className="mx-auto max-w-3xl px-6 py-12">
+      <div
+        style={{
+          maxWidth: "860px",
+          margin: "0 auto",
+          padding: "48px 24px",
+        }}
+      >
         {screen === "input" && (
           <Screen1
             onGenerate={() => setScreen("output")}

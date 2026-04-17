@@ -41,48 +41,69 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
     <>
       {/* Loading overlay */}
       {loading && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/70">
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "rgba(255,255,255,0.7)",
+          }}
+        >
           <div
-            className="animate-spin rounded-full border-[3px] border-purple-200"
             style={{
               width: "24px",
               height: "24px",
+              border: "3px solid #e9d5ff",
               borderTopColor: "#7B00D4",
+              borderRadius: "50%",
+              animation: "spin 0.8s linear infinite",
             }}
           />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>
       )}
 
-      {/* Page heading — sits on gray bg, no card */}
-      <h1
-        className="font-bold"
-        style={{
-          fontSize: "32px",
-          color: "#111827",
-          lineHeight: "1.2",
-          marginBottom: "8px",
-        }}
-      >
-        Welcome to Employee Communications Intelligence
-      </h1>
-      <p style={{ fontSize: "14px", color: "#6B7280", marginBottom: "32px" }}>
-        Generate intelligent campaign ideas &amp; strategies tailored to your
-        audience, platform, and objectives.
-      </p>
+      {/* Page heading — on gray bg, no card */}
+      <div style={{ marginBottom: "32px" }}>
+        <h1
+          style={{
+            fontSize: "32px",
+            fontWeight: "700",
+            color: "#111827",
+            lineHeight: "1.2",
+            marginBottom: "8px",
+          }}
+        >
+          Welcome to Employee Communications Intelligence
+        </h1>
+        <p style={{ fontSize: "14px", color: "#6B7280" }}>
+          Generate intelligent campaign ideas &amp; strategies tailored to your
+          audience, platform, and objectives.
+        </p>
+      </div>
 
       {/* White form card */}
       <div
         style={{
-          width: "100%",
           backgroundColor: "#FFFFFF",
           borderRadius: "16px",
           border: "1px solid #E5E7EB",
           boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
           padding: "32px",
+          width: "100%",
         }}
       >
         {/* Top row */}
-        <div className="flex items-start justify-between">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+          }}
+        >
           <p style={{ fontSize: "13px", color: "#6B7280", maxWidth: "480px" }}>
             Describe your objective and audience. We&apos;ll surface ideas
             backed by engagement data.
@@ -90,13 +111,18 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           <button
             type="button"
             onClick={onHowItWorks}
-            className="flex shrink-0 cursor-pointer items-center gap-1.5 bg-white"
             style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
               border: "1px solid #D1D5DB",
               borderRadius: "999px",
               padding: "6px 14px",
               fontSize: "13px",
               color: "#374151",
+              backgroundColor: "#FFFFFF",
+              cursor: "pointer",
+              flexShrink: 0,
             }}
           >
             <svg
@@ -122,8 +148,12 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         {/* Campaign Objective */}
         <div style={{ marginTop: "24px" }}>
           <label
-            className="block font-semibold"
-            style={{ fontSize: "15px", color: "#7B00D4" }}
+            style={{
+              display: "block",
+              fontSize: "15px",
+              fontWeight: "600",
+              color: "#7B00D4",
+            }}
           >
             Campaign Objective
           </label>
@@ -176,7 +206,13 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Audience Segment + Industry */}
-        <div className="grid grid-cols-2 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "24px",
+          }}
+        >
           <MultiSelectDropdown
             label="Audience Segment"
             subLabel="Select target audience"
@@ -194,7 +230,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Channel Preference + Geography */}
-        <div className="grid grid-cols-2 gap-6" style={{ marginTop: "24px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "24px",
+            marginTop: "24px",
+          }}
+        >
           <MultiSelectDropdown
             label="Channel Preference"
             subLabel="Select communication channel"
@@ -225,16 +268,25 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         {/* Number of Ideas to Surface */}
         <div style={{ marginTop: "24px" }}>
           <label
-            className="block font-semibold"
-            style={{ fontSize: "15px", color: "#7B00D4" }}
+            style={{
+              display: "block",
+              fontSize: "15px",
+              fontWeight: "600",
+              color: "#7B00D4",
+            }}
           >
             Number of Ideas to Surface
           </label>
-          <div className="flex items-center" style={{ marginTop: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: "12px",
+            }}
+          >
             <button
               type="button"
               onClick={() => setIdeaCount((c) => Math.max(1, c - 1))}
-              className="flex cursor-pointer items-center justify-center"
               style={{
                 width: "40px",
                 height: "40px",
@@ -243,7 +295,10 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
                 border: "1px solid #E5E7EB",
                 fontSize: "18px",
                 color: "#374151",
-                lineHeight: 1,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.backgroundColor = "#E5E7EB")
@@ -255,9 +310,9 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               −
             </button>
             <span
-              className="font-bold"
               style={{
                 fontSize: "24px",
+                fontWeight: "700",
                 color: "#111827",
                 margin: "0 16px",
                 minWidth: "20px",
@@ -269,7 +324,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             <button
               type="button"
               onClick={() => setIdeaCount((c) => Math.min(5, c + 1))}
-              className="flex cursor-pointer items-center justify-center"
               style={{
                 width: "40px",
                 height: "40px",
@@ -278,7 +332,10 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
                 border: "1px solid #E5E7EB",
                 fontSize: "18px",
                 color: "#374151",
-                lineHeight: 1,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.backgroundColor = "#E5E7EB")
@@ -306,13 +363,16 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           <button
             type="button"
             onClick={handleGenerate}
-            className="w-full cursor-pointer font-semibold text-white"
             style={{
+              width: "100%",
               height: "52px",
               backgroundColor: "#7B00D4",
               borderRadius: "12px",
               border: "none",
               fontSize: "16px",
+              fontWeight: "600",
+              color: "#FFFFFF",
+              cursor: "pointer",
               transition: "background-color 0.15s, transform 0.1s",
             }}
             onMouseEnter={(e) =>

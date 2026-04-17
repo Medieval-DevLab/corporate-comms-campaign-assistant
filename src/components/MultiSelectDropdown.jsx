@@ -38,15 +38,18 @@ export default function MultiSelectDropdown({
     <div>
       {label && (
         <label
-          className="block font-semibold"
-          style={{ fontSize: "15px", color: "#7B00D4" }}
+          style={{
+            display: "block",
+            fontSize: "15px",
+            fontWeight: "600",
+            color: "#7B00D4",
+          }}
         >
           {label}
         </label>
       )}
       {subLabel && (
         <p
-          className="font-normal"
           style={{
             fontSize: "13px",
             color: "#6B7280",
@@ -58,19 +61,25 @@ export default function MultiSelectDropdown({
         </p>
       )}
 
-      <div ref={ref} className="relative">
+      <div ref={ref} style={{ position: "relative" }}>
         {/* Trigger button */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex w-full cursor-pointer items-center justify-between bg-white"
           style={{
+            display: "flex",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "space-between",
             height: "42px",
+            backgroundColor: "#FFFFFF",
             border: "1px solid #D1D5DB",
             borderRadius: "8px",
             padding: "0 12px",
             fontSize: "14px",
             color: selected.length > 0 ? "#374151" : "#9CA3AF",
+            cursor: "pointer",
+            fontFamily: "inherit",
           }}
         >
           <span>{displayText}</span>
@@ -82,6 +91,7 @@ export default function MultiSelectDropdown({
             style={{
               transform: open ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.15s ease",
+              flexShrink: 0,
             }}
           >
             <path
@@ -97,8 +107,12 @@ export default function MultiSelectDropdown({
         {/* Dropdown panel */}
         {open && (
           <div
-            className="absolute z-50 mt-1 w-full bg-white"
             style={{
+              position: "absolute",
+              zIndex: 50,
+              marginTop: "4px",
+              width: "100%",
+              backgroundColor: "#FFFFFF",
               border: "1px solid #E5E7EB",
               borderRadius: "8px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -111,14 +125,18 @@ export default function MultiSelectDropdown({
                   key={option}
                   type="button"
                   onClick={() => toggle(option)}
-                  className="flex w-full cursor-pointer items-center"
                   style={{
+                    display: "flex",
+                    width: "100%",
+                    alignItems: "center",
+                    gap: "10px",
                     padding: "10px 16px",
                     fontSize: "14px",
                     color: "#374151",
-                    gap: "10px",
-                    background: "transparent",
+                    backgroundColor: "transparent",
                     border: "none",
+                    cursor: "pointer",
+                    fontFamily: "inherit",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.backgroundColor = "#F9FAFB")
@@ -129,13 +147,16 @@ export default function MultiSelectDropdown({
                 >
                   {/* Custom checkbox */}
                   <span
-                    className="flex shrink-0 items-center justify-center"
                     style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                       width: "16px",
                       height: "16px",
                       borderRadius: "3px",
-                      border: `1.5px solid #7B00D4`,
+                      border: "1.5px solid #7B00D4",
                       backgroundColor: checked ? "#7B00D4" : "#FFFFFF",
+                      flexShrink: 0,
                     }}
                   >
                     {checked && (

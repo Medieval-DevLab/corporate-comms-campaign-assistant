@@ -1,48 +1,54 @@
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-gray-200 bg-white px-6">
-      {/* Left side */}
-      <div className="flex items-center">
-        {/* Purple solid triangle */}
-        <span style={{ color: "#7B00D4", fontSize: "18px", lineHeight: 1 }}>
-          ▶
-        </span>
-
-        {/* Vertical divider */}
+    <nav
+      style={{
+        backgroundColor: "#FFFFFF",
+        borderBottom: "1px solid #E5E7EB",
+        height: "56px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 24px",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <span style={{ color: "#7B00D4", fontSize: "18px" }}>&#9654;</span>
         <div
-          className="bg-gray-200"
-          style={{ width: "1px", height: "28px", margin: "0 16px" }}
+          style={{
+            width: "1px",
+            height: "28px",
+            backgroundColor: "#E5E7EB",
+          }}
         />
-
-        <span className="font-semibold text-gray-900" style={{ fontSize: "16px" }}>
+        <span
+          style={{ fontWeight: "600", fontSize: "15px", color: "#111827" }}
+        >
           Employee Communications Intelligence
         </span>
       </div>
 
-      {/* Right side */}
-      <div className="flex items-center gap-2.5">
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
           src="https://i.pravatar.cc/36"
           alt="Avatar"
-          className="rounded-full object-cover"
-          style={{ width: "36px", height: "36px" }}
+          style={{
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
         />
-        <div className="flex flex-col">
-          <div className="flex items-center gap-1">
-            <span className="font-semibold text-gray-900" style={{ fontSize: "14px" }}>
-              John Smith
-            </span>
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <path
-                d="M2.5 4L5 6.5L7.5 4"
-                stroke="#9CA3AF"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+        <div>
+          <div
+            style={{ fontWeight: "600", fontSize: "14px", color: "#111827" }}
+          >
+            John Smith{" "}
+            <span style={{ color: "#9CA3AF", fontSize: "12px" }}>&#8744;</span>
           </div>
-          <span style={{ fontSize: "11px", color: "#9CA3AF" }}>Designation</span>
+          <div style={{ fontSize: "12px", color: "#9CA3AF" }}>Designation</div>
         </div>
       </div>
     </nav>
