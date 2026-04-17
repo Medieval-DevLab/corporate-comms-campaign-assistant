@@ -38,77 +38,151 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
   };
 
   return (
-    <div className="relative mx-auto max-w-4xl px-6 py-12">
+    <div
+      className="relative mx-auto"
+      style={{ maxWidth: "780px", padding: "48px 24px" }}
+    >
+      {/* Loading overlay */}
       {loading && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/70 backdrop-blur-sm">
-          <div className="flex flex-col items-center gap-4">
-            <div className="h-10 w-10 animate-spin rounded-full border-4 border-purple-200 border-t-purple-700" />
-            <p className="text-sm font-medium text-gray-600">
-              Generating campaign ideas...
-            </p>
-          </div>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/70">
+          <div
+            className="animate-spin rounded-full border-[3px] border-purple-200"
+            style={{
+              width: "24px",
+              height: "24px",
+              borderTopColor: "#7B00D4",
+            }}
+          />
         </div>
       )}
 
-      <h1 className="text-3xl font-bold text-gray-900">
+      {/* Page heading — sits on gray bg, no card */}
+      <h1
+        className="font-bold"
+        style={{ fontSize: "36px", color: "#111827", lineHeight: "1.2" }}
+      >
         Welcome to Employee Communications Intelligence
       </h1>
-      <p className="mt-2 text-sm text-gray-500">
+      <p style={{ fontSize: "14px", color: "#6B7280", marginTop: "8px" }}>
         Generate intelligent campaign ideas &amp; strategies tailored to your
         audience, platform, and objectives.
       </p>
 
-      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+      {/* White form card */}
+      <div
+        style={{
+          marginTop: "32px",
+          backgroundColor: "#FFFFFF",
+          borderRadius: "16px",
+          border: "1px solid #E5E7EB",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+          padding: "32px",
+        }}
+      >
         {/* Top row */}
         <div className="flex items-start justify-between">
-          <p className="text-sm text-gray-600">
+          <p style={{ fontSize: "13px", color: "#6B7280", maxWidth: "480px" }}>
             Describe your objective and audience. We&apos;ll surface ideas
             backed by engagement data.
           </p>
           <button
             type="button"
             onClick={onHowItWorks}
-            className="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+            className="flex shrink-0 cursor-pointer items-center gap-1.5 bg-white"
+            style={{
+              border: "1px solid #D1D5DB",
+              borderRadius: "999px",
+              padding: "6px 14px",
+              fontSize: "13px",
+              color: "#374151",
+            }}
           >
             <svg
-              className="h-4 w-4 text-gray-500"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
               fill="none"
-              viewBox="0 0 16 16"
+              style={{ flexShrink: 0 }}
             >
-              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
+              <circle
+                cx="7"
+                cy="7"
+                r="6"
+                stroke="#9CA3AF"
+                strokeWidth="1.2"
+              />
               <path
-                d="M8 7.5V11"
-                stroke="currentColor"
-                strokeWidth="1.5"
+                d="M7 6.5V9.5"
+                stroke="#9CA3AF"
+                strokeWidth="1.2"
                 strokeLinecap="round"
               />
-              <circle cx="8" cy="5.5" r="0.75" fill="currentColor" />
+              <circle cx="7" cy="4.8" r="0.6" fill="#9CA3AF" />
             </svg>
             How it works?
           </button>
         </div>
 
         {/* Campaign Objective */}
-        <div className="mt-6">
-          <label className="block text-base font-semibold text-purple-700">
+        <div style={{ marginTop: "24px" }}>
+          <label
+            className="block font-semibold"
+            style={{ fontSize: "15px", color: "#7B00D4" }}
+          >
             Campaign Objective
           </label>
-          <p className="mt-0.5 mb-2 text-sm text-gray-500">
+          <p
+            style={{
+              fontSize: "13px",
+              color: "#6B7280",
+              marginTop: "2px",
+              marginBottom: "8px",
+            }}
+          >
             Brief about Campaign Objective
           </p>
           <textarea
             value={objective}
             onChange={(e) => setObjective(e.target.value)}
             placeholder="Enter Text Here."
-            className="min-h-[120px] w-full rounded-xl border border-gray-300 p-4 text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            style={{
+              width: "100%",
+              minHeight: "110px",
+              border: "1px solid #D1D5DB",
+              borderRadius: "8px",
+              padding: "12px",
+              fontSize: "14px",
+              color: "#111827",
+              fontFamily: "inherit",
+              resize: "vertical",
+              outline: "none",
+            }}
+            onFocus={(e) => {
+              e.target.style.border = "2px solid #7B00D4";
+              e.target.style.padding = "11px";
+            }}
+            onBlur={(e) => {
+              e.target.style.border = "1px solid #D1D5DB";
+              e.target.style.padding = "12px";
+            }}
           />
-          <p className="mt-2 text-sm italic text-gray-400">
+          <p
+            style={{
+              fontSize: "13px",
+              color: "#9CA3AF",
+              fontStyle: "italic",
+              marginTop: "8px",
+            }}
+          >
             The more context you provide, the stronger the signal.
           </p>
         </div>
 
-        {/* Audience + Industry */}
-        <div className="mt-6 grid grid-cols-2 gap-6">
+        {/* Audience Segment + Industry */}
+        <div
+          className="grid grid-cols-2"
+          style={{ gap: "24px", marginTop: "28px" }}
+        >
           <MultiSelectDropdown
             label="Audience Segment"
             subLabel="Select target audience"
@@ -125,8 +199,11 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Channel + Geography */}
-        <div className="mt-6 grid grid-cols-2 gap-6">
+        {/* Channel Preference + Geography */}
+        <div
+          className="grid grid-cols-2"
+          style={{ gap: "24px", marginTop: "24px" }}
+        >
           <MultiSelectDropdown
             label="Channel Preference"
             subLabel="Select communication channel"
@@ -144,36 +221,83 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Campaign Window */}
-        <div className="mt-6 w-1/2">
+        <div style={{ marginTop: "24px", width: "50%" }}>
           <MultiSelectDropdown
             label="Campaign Window"
-            subLabel="Select campaign timeframe"
+            subLabel="Select campaign duration"
             options={WINDOW_OPTIONS}
             selected={campaignWindow}
             onChange={setCampaignWindow}
           />
         </div>
 
-        {/* Number of Ideas */}
-        <div className="mt-6">
-          <label className="block text-base font-semibold text-purple-700">
+        {/* Number of Ideas to Surface */}
+        <div style={{ marginTop: "24px" }}>
+          <label
+            className="block font-semibold"
+            style={{ fontSize: "15px", color: "#7B00D4" }}
+          >
             Number of Ideas to Surface
           </label>
-          <div className="mt-3 flex items-center">
+          <div
+            className="flex items-center"
+            style={{ marginTop: "12px" }}
+          >
             <button
               type="button"
               onClick={() => setIdeaCount((c) => Math.max(1, c - 1))}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-gray-100 text-lg font-medium text-gray-700 hover:bg-gray-200"
+              className="flex cursor-pointer items-center justify-center"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                backgroundColor: "#F3F4F6",
+                border: "1px solid #E5E7EB",
+                fontSize: "18px",
+                color: "#374151",
+                lineHeight: 1,
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#E5E7EB")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#F3F4F6")
+              }
             >
               −
             </button>
-            <span className="mx-4 text-2xl font-bold text-gray-900">
+            <span
+              className="font-bold"
+              style={{
+                fontSize: "24px",
+                color: "#111827",
+                margin: "0 16px",
+                minWidth: "20px",
+                textAlign: "center",
+              }}
+            >
               {ideaCount}
             </span>
             <button
               type="button"
               onClick={() => setIdeaCount((c) => Math.min(5, c + 1))}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-200 bg-gray-100 text-lg font-medium text-gray-700 hover:bg-gray-200"
+              className="flex cursor-pointer items-center justify-center"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                backgroundColor: "#F3F4F6",
+                border: "1px solid #E5E7EB",
+                fontSize: "18px",
+                color: "#374151",
+                lineHeight: 1,
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#E5E7EB")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#F3F4F6")
+              }
             >
               +
             </button>
@@ -181,14 +305,38 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* CTA */}
-        <div className="mt-8 text-center">
-          <p className="mb-3 text-sm text-gray-500">
+        <div style={{ marginTop: "32px", textAlign: "center" }}>
+          <p
+            style={{
+              fontSize: "13px",
+              color: "#9CA3AF",
+              marginBottom: "12px",
+            }}
+          >
             Click below to generate the top campaign ideas
           </p>
           <button
             type="button"
             onClick={handleGenerate}
-            className="w-full cursor-pointer rounded-2xl bg-[#7B00D4] py-4 text-base font-semibold text-white hover:bg-purple-800"
+            className="w-full cursor-pointer font-semibold text-white"
+            style={{
+              height: "52px",
+              backgroundColor: "#7B00D4",
+              borderRadius: "12px",
+              border: "none",
+              fontSize: "16px",
+              transition: "background-color 0.15s, transform 0.1s",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#6500B0")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "#7B00D4")
+            }
+            onMouseDown={(e) =>
+              (e.currentTarget.style.transform = "scale(0.99)")
+            }
+            onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             Find What Works
           </button>
