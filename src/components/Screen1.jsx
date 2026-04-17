@@ -34,35 +34,63 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
     setTimeout(() => {
       setLoading(false);
       onGenerate();
-    }, 1500);
+    }, 4000);
   };
 
   return (
     <>
-      {/* Loading overlay */}
+      {/* Loading overlay modal */}
       {loading && (
         <div
           style={{
             position: "fixed",
-            inset: 0,
-            zIndex: 100,
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.3)",
+            zIndex: 1000,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "rgba(255,255,255,0.7)",
           }}
         >
           <div
             style={{
-              width: "24px",
-              height: "24px",
-              border: "3px solid #ebccff",
-              borderTopColor: "#A100FF",
-              borderRadius: "50%",
-              animation: "spin 0.8s linear infinite",
+              backgroundColor: "#FFFFFF",
+              borderRadius: "16px",
+              padding: "48px 64px",
+              textAlign: "center",
+              minWidth: "400px",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
             }}
-          />
-          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          >
+            <div
+              style={{
+                width: "48px",
+                height: "48px",
+                border: "3px solid #E5E7EB",
+                borderTopColor: "#7B00D4",
+                borderRadius: "50%",
+                animation: "spin 0.9s linear infinite",
+                margin: "0 auto 24px auto",
+              }}
+            />
+            <div
+              style={{
+                fontSize: "20px",
+                fontWeight: "600",
+                color: "#7B00D4",
+                marginBottom: "12px",
+              }}
+            >
+              Generating Your Campaign Ideas
+            </div>
+            <div style={{ fontSize: "14px", color: "#6B7280" }}>
+              Analyzing your inputs to create targeted campaign ideas
+            </div>
+          </div>
+          <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
         </div>
       )}
 
