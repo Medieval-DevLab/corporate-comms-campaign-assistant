@@ -453,12 +453,12 @@ export default function Screen1({ onGenerate }) {
           onClick={() => setShowHowItWorks(false)}
           style={{
             position: "fixed",
-            top: 0,
+            top: "72px",
             left: 0,
             width: "100vw",
-            height: "100vh",
+            height: "calc(100vh - 72px)",
             backgroundColor: "rgba(0,0,0,0.5)",
-            zIndex: 1000,
+            zIndex: 40,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
