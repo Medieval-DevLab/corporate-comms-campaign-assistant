@@ -1,56 +1,71 @@
 import { useState } from "react";
 
-function Tooltip({ text, children }) {
+function InfoTooltip({ text }) {
   const [show, setShow] = useState(false);
   return (
-    <span
-      style={{ position: "relative", display: "inline-flex", cursor: "help" }}
+    <div
+      style={{ position: "relative", display: "inline-flex", alignItems: "center" }}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      {children}
-      {show && (
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "16px",
+          height: "16px",
+          borderRadius: "50%",
+          border: "1.5px solid #7B00D4",
+          color: "#7B00D4",
+          fontSize: "10px",
+          fontWeight: 700,
+          cursor: "default",
+          marginLeft: "6px",
+          verticalAlign: "middle",
+          userSelect: "none",
+          flexShrink: 0,
+        }}
+      >
+        i
+      </span>
+      <span
+        style={{
+          position: "absolute",
+          bottom: "calc(100% + 8px)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#1E1B4B",
+          color: "#FFFFFF",
+          fontSize: "11px",
+          lineHeight: 1.5,
+          padding: "7px 12px",
+          borderRadius: "6px",
+          whiteSpace: "normal",
+          maxWidth: "220px",
+          width: "max-content",
+          zIndex: 100,
+          pointerEvents: "none",
+          opacity: show ? 1 : 0,
+          transition: "opacity 0.15s ease",
+        }}
+      >
+        {text}
         <span
           style={{
             position: "absolute",
-            bottom: "calc(100% + 6px)",
+            bottom: "-5px",
             left: "50%",
             transform: "translateX(-50%)",
-            backgroundColor: "#111827",
-            color: "#FFFFFF",
-            fontSize: "11px",
-            lineHeight: "1.4",
-            padding: "6px 10px",
-            borderRadius: "6px",
-            whiteSpace: "nowrap",
-            zIndex: 100,
+            width: 0,
+            height: 0,
+            borderLeft: "5px solid transparent",
+            borderRight: "5px solid transparent",
+            borderTop: "5px solid #1E1B4B",
           }}
-        >
-          {text}
-        </span>
-      )}
-    </span>
-  );
-}
-
-function InfoIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      style={{ flexShrink: 0 }}
-    >
-      <circle cx="7" cy="7" r="6" stroke="#9CA3AF" strokeWidth="1.2" />
-      <path
-        d="M7 6.5V9.5"
-        stroke="#9CA3AF"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <circle cx="7" cy="4.8" r="0.6" fill="#9CA3AF" />
-    </svg>
+        />
+      </span>
+    </div>
   );
 }
 
@@ -257,9 +272,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               }}
             >
               <span style={labelStyle}>Target Audience</span>
-              <Tooltip text="Highest click segment for this content type in this region.">
-                <InfoIcon />
-              </Tooltip>
+              <InfoTooltip text="Highest click segment for this content type in this region." />
             </div>
             <div style={valueStyle}>{campaign.targetAudience}</div>
           </div>
@@ -281,9 +294,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               }}
             >
               <span style={labelStyle}>Peak Engagement Window</span>
-              <Tooltip text="Based on historical send data — not a scheduling recommendation.">
-                <InfoIcon />
-              </Tooltip>
+              <InfoTooltip text="Based on historical send data — not a scheduling recommendation." />
             </div>
             <div style={valueStyle}>{campaign.peakWindow}</div>
           </div>
@@ -614,6 +625,20 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             {feedback === "not-relevant" ? "✕ Not Relevant" : "Not Relevant"}
           </button>
         </div>
+        {feedback && (
+          <div
+            style={{
+              fontSize: "12px",
+              color: feedback === "good" ? "#16A34A" : "#DC2626",
+              marginTop: "8px",
+              fontStyle: "italic",
+            }}
+          >
+            {feedback === "good"
+              ? "Got it! We'll surface more ideas like this."
+              : "Noted. We'll refine your results accordingly."}
+          </div>
+        )}
       </div>
     </div>
   );
