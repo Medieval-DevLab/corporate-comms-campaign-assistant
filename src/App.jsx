@@ -8,6 +8,7 @@ import Screen3 from "./components/Screen3";
 export default function App() {
   const [screen, setScreen] = useState("input");
   const [comparedCampaigns, setComparedCampaigns] = useState([]);
+  const [projectName, setProjectName] = useState(null);
 
   return (
     <div
@@ -17,7 +18,7 @@ export default function App() {
         fontFamily: "Inter, sans-serif",
       }}
     >
-      <Navbar onNavigateHome={() => setScreen("input")} />
+      <Navbar projectName={projectName} onNavigateHome={() => setScreen("input")} />
       <div
         style={{
           maxWidth: "1000px",
