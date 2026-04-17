@@ -101,7 +101,7 @@ export default function Screen1({ onGenerate }) {
             </div>
             <div
               style={{
-                fontSize: "20px",
+                fontSize: "18px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "12px",
@@ -109,7 +109,7 @@ export default function Screen1({ onGenerate }) {
             >
               Generating Your Campaign Ideas
             </div>
-            <div style={{ fontSize: "14px", color: "#6B7280" }}>
+            <div style={{ fontSize: "13px", color: "#6B7280" }}>
               Analyzing your inputs to create targeted campaign ideas
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function Screen1({ onGenerate }) {
       <div>
         <h1
           style={{
-            fontSize: "28px",
+            fontSize: "26px",
             fontWeight: "700",
             color: "#000000",
             lineHeight: "1.2",
@@ -130,7 +130,7 @@ export default function Screen1({ onGenerate }) {
         >
           Welcome to Employee Communications Intelligence
         </h1>
-        <p style={{ fontSize: "14px", color: "#6B7280" }}>
+        <p style={{ fontSize: "13px", color: "#6B7280" }}>
           Generate intelligent campaign ideas &amp; strategies tailored to your
           audience, platform, and objectives.
         </p>
@@ -143,7 +143,7 @@ export default function Screen1({ onGenerate }) {
           borderRadius: "16px",
           border: "1px solid #E5E7EB",
           boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-          padding: "32px",
+          padding: "36px",
           marginTop: "40px",
           width: "100%",
         }}
@@ -213,7 +213,7 @@ export default function Screen1({ onGenerate }) {
           </label>
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "12px",
               color: "#6B7280",
               marginTop: "0",
               marginBottom: "8px",
@@ -227,11 +227,11 @@ export default function Screen1({ onGenerate }) {
             placeholder="Enter Text Here."
             style={{
               width: "100%",
-              minHeight: "110px",
+              minHeight: "100px",
               border: "1px solid #D1D5DB",
               borderRadius: "12px",
               padding: "12px",
-              fontSize: "14px",
+              fontSize: "13px",
               color: "#000000",
               fontFamily: "inherit",
               resize: "vertical",
@@ -248,11 +248,11 @@ export default function Screen1({ onGenerate }) {
           />
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "12px",
               color: "#9CA3AF",
               fontStyle: "italic",
               marginTop: "10px",
-              marginBottom: "32px",
+              marginBottom: "28px",
             }}
           >
             The more context you provide, the stronger the signal.
@@ -409,7 +409,7 @@ export default function Screen1({ onGenerate }) {
         <div style={{ textAlign: "center" }}>
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "12px",
               color: "#9CA3AF",
             }}
           >
@@ -424,7 +424,7 @@ export default function Screen1({ onGenerate }) {
               backgroundColor: "#A100FF",
               borderRadius: "12px",
               border: "none",
-              fontSize: "15px",
+              fontSize: "14px",
               fontWeight: "600",
               color: "#FFFFFF",
               cursor: "pointer",
@@ -509,7 +509,7 @@ export default function Screen1({ onGenerate }) {
               </button>
               <div
                 style={{
-                  fontSize: "28px",
+                  fontSize: "26px",
                   fontWeight: "700",
                   color: "#FFFFFF",
                   marginBottom: "10px",
@@ -519,7 +519,7 @@ export default function Screen1({ onGenerate }) {
               </div>
               <div
                 style={{
-                  fontSize: "14px",
+                  fontSize: "13px",
                   color: "rgba(255,255,255,0.85)",
                 }}
               >
@@ -534,7 +534,7 @@ export default function Screen1({ onGenerate }) {
               <div style={{ marginBottom: "28px" }}>
                 <div
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: "700",
                     color: "#111827",
                     marginBottom: "8px",
@@ -544,7 +544,7 @@ export default function Screen1({ onGenerate }) {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "#374151",
                     lineHeight: "1.6",
                   }}
@@ -558,7 +558,7 @@ export default function Screen1({ onGenerate }) {
               <div style={{ marginBottom: "28px" }}>
                 <div
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: "700",
                     color: "#111827",
                     marginBottom: "8px",
@@ -568,7 +568,7 @@ export default function Screen1({ onGenerate }) {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "#374151",
                     marginBottom: "8px",
                   }}
@@ -577,7 +577,7 @@ export default function Screen1({ onGenerate }) {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "#374151",
                     lineHeight: "1.8",
                     paddingLeft: "16px",
@@ -598,7 +598,7 @@ export default function Screen1({ onGenerate }) {
               <div>
                 <div
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: "700",
                     color: "#111827",
                     marginBottom: "8px",
@@ -608,7 +608,7 @@ export default function Screen1({ onGenerate }) {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "#374151",
                     lineHeight: "1.6",
                   }}

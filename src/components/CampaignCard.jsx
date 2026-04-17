@@ -76,7 +76,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         border: isCompare ? "2px solid #7B00D4" : "1px solid #E5E7EB",
         borderRadius: "12px",
         backgroundColor: "#FFFFFF",
-        marginBottom: "24px",
+        marginBottom: "28px",
         overflow: "hidden",
       }}
     >
@@ -99,12 +99,12 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           }}
         >
           <span
-            style={{ color: "#7B00D4", fontSize: "13px", fontWeight: "600" }}
+            style={{ color: "#7B00D4", fontSize: "12px", fontWeight: "600" }}
           >
             {campaign.label}
           </span>
           <span
-            style={{ fontSize: "15px", fontWeight: "700", color: "#111827" }}
+            style={{ fontSize: "14px", fontWeight: "700", color: "#111827" }}
           >
             {campaign.title}
           </span>
@@ -113,7 +113,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               border: "1px solid #D1D5DB",
               borderRadius: "999px",
               padding: "2px 10px",
-              fontSize: "12px",
+              fontSize: "11px",
               color: "#374151",
               display: "flex",
               alignItems: "center",
@@ -134,7 +134,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             flexShrink: 0,
           }}
         >
-          <span style={{ fontSize: "13px", color: "#6B7280" }}>Compare</span>
+          <span style={{ fontSize: "12px", color: "#6B7280" }}>Compare</span>
           <button
             type="button"
             onClick={onToggleCompare}
@@ -169,12 +169,12 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
       {/* ── HEADER ROW 2 — italic disclaimer ── */}
       <div
         style={{
-          padding: "4px 24px 12px",
+          padding: "4px 24px 14px",
           borderBottom: "1px solid #F3F4F6",
         }}
       >
         <span
-          style={{ fontSize: "12px", color: "#9CA3AF", fontStyle: "italic" }}
+          style={{ fontSize: "11px", color: "#9CA3AF", fontStyle: "italic" }}
         >
           Format, frequency, timing and execution to be decided by the BU.
         </span>
@@ -186,16 +186,16 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "0",
-          padding: "20px 24px",
+          padding: "24px",
         }}
       >
         {/* LEFT COLUMN */}
         <div style={{ paddingRight: "24px" }}>
           {/* Campaign Type */}
-          <div style={{ marginBottom: "14px" }}>
+          <div style={{ marginBottom: "18px" }}>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "2px",
@@ -209,7 +209,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           </div>
 
           {/* Target Audience */}
-          <div style={{ marginBottom: "14px" }}>
+          <div style={{ marginBottom: "18px" }}>
             <div
               style={{
                 display: "flex",
@@ -220,7 +220,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             >
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: "600",
                   color: "#7B00D4",
                 }}
@@ -237,10 +237,10 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           </div>
 
           {/* Strongest Signal Channel */}
-          <div style={{ marginBottom: "14px" }}>
+          <div style={{ marginBottom: "18px" }}>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "2px",
@@ -254,7 +254,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           </div>
 
           {/* Peak Engagement Window */}
-          <div style={{ marginBottom: "14px" }}>
+          <div style={{ marginBottom: "18px" }}>
             <div
               style={{
                 display: "flex",
@@ -265,7 +265,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             >
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: "600",
                   color: "#7B00D4",
                 }}
@@ -285,7 +285,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           <div>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "2px",
@@ -311,7 +311,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "8px",
+              gap: "16px",
               marginBottom: "12px",
             }}
           >
@@ -328,7 +328,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               </div>
               <div
                 style={{
-                  fontSize: "20px",
+                  fontSize: "18px",
                   fontWeight: "700",
                   color: "#111827",
                 }}
@@ -349,7 +349,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               </div>
               <div
                 style={{
-                  fontSize: "20px",
+                  fontSize: "18px",
                   fontWeight: "700",
                   color: "#111827",
                 }}
@@ -370,7 +370,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               </div>
               <div
                 style={{
-                  fontSize: "20px",
+                  fontSize: "18px",
                   fontWeight: "700",
                   color: "#111827",
                 }}
@@ -383,15 +383,15 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           {/* Org avg + Increase */}
           <div
             style={{
-              fontSize: "13px",
+              fontSize: "12px",
               color: "#6B7280",
-              marginBottom: "4px",
+              marginBottom: "6px",
             }}
           >
             Organization avg —{" "}
             <strong style={{ color: "#111827" }}>{campaign.orgAvg}</strong>
           </div>
-          <div style={{ fontSize: "13px", color: "#111827" }}>
+          <div style={{ fontSize: "12px", color: "#111827" }}>
             Increase —{" "}
             <span style={{ color: "#16A34A" }}>{campaign.increase}</span>
           </div>
@@ -400,7 +400,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           <div style={{ marginTop: "16px" }}>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "6px",
@@ -408,11 +408,11 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             >
               Evidence Base
             </div>
-            <div
-              style={{ fontSize: "12px", color: "#6B7280", lineHeight: "1.6" }}
-            >
+            <div style={{ fontSize: "11px", color: "#6B7280", lineHeight: "1.6" }}>
               {campaign.evidence.map((item, i) => (
-                <div key={i}>{item}</div>
+                <div key={i} style={{ marginBottom: "4px" }}>
+                  {item}
+                </div>
               ))}
             </div>
           </div>
@@ -423,14 +423,14 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
       <div
         style={{
           borderTop: "1px solid #F3F4F6",
-          padding: "20px 24px",
+          padding: "24px",
         }}
       >
         {/* AI Rationale */}
         <div style={{ marginBottom: "20px" }}>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: "600",
               color: "#7B00D4",
               marginBottom: "6px",
@@ -440,7 +440,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           </div>
           <div
             style={{
-              fontSize: "13px",
+              fontSize: "12px",
               color: "#374151",
               lineHeight: "1.6",
             }}
@@ -450,10 +450,10 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         </div>
 
         {/* Generated Subject Line */}
-        <div style={{ marginBottom: "16px" }}>
+        <div style={{ marginBottom: "20px" }}>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: "600",
               color: "#7B00D4",
               marginBottom: "6px",
@@ -475,13 +475,13 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "16px",
-            marginBottom: "16px",
+            marginBottom: "20px",
           }}
         >
           <div>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "6px",
@@ -499,7 +499,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           <div>
             <div
               style={{
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
                 marginBottom: "6px",
@@ -520,7 +520,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         <div style={{ marginBottom: "20px" }}>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: "600",
               color: "#7B00D4",
               marginBottom: "4px",
@@ -528,7 +528,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           >
             Subject Line Rationale
           </div>
-          <div style={{ fontSize: "12px", color: "#6B7280" }}>
+          <div style={{ fontSize: "11px", color: "#6B7280" }}>
             {campaign.subjectLineRationale}
           </div>
         </div>
@@ -545,7 +545,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                   : "1px solid #D1D5DB",
               borderRadius: "8px",
               padding: "7px 18px",
-              fontSize: "13px",
+              fontSize: "12px",
               backgroundColor: feedback === "good" ? "#DCFCE7" : "#FFFFFF",
               color: feedback === "good" ? "#16A34A" : "#374151",
               cursor: "pointer",
@@ -566,7 +566,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
                   : "1px solid #D1D5DB",
               borderRadius: "8px",
               padding: "7px 18px",
-              fontSize: "13px",
+              fontSize: "12px",
               backgroundColor:
                 feedback === "not-relevant" ? "#FEE2E2" : "#FFFFFF",
               color: feedback === "not-relevant" ? "#DC2626" : "#374151",

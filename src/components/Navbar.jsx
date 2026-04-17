@@ -30,7 +30,7 @@ export default function Navbar() {
         />
         <span
           style={{
-            fontSize: "20px",
+            fontSize: "15px",
             fontWeight: "700",
             color: "#111827",
             whiteSpace: "nowrap",
@@ -62,12 +62,12 @@ export default function Navbar() {
         />
         <div>
           <div
-            style={{ fontSize: "15px", fontWeight: "600", color: "#111827" }}
+            style={{ fontSize: "13px", fontWeight: "600", color: "#111827" }}
           >
             John Smith ∨
           </div>
           <div
-            style={{ fontSize: "12px", color: "#9CA3AF", marginTop: "2px" }}
+            style={{ fontSize: "11px", color: "#9CA3AF", marginTop: "2px" }}
           >
             Designation
           </div>

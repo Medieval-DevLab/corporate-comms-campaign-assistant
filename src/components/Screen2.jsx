@@ -55,7 +55,7 @@ export default function Screen2({ onCompare, onBack }) {
       <div>
         <h1
           style={{
-            fontSize: "28px",
+            fontSize: "26px",
             fontWeight: "700",
             color: "#111827",
             margin: 0,
@@ -65,7 +65,7 @@ export default function Screen2({ onCompare, onBack }) {
         </h1>
         <p
           style={{
-            fontSize: "14px",
+            fontSize: "13px",
             color: "#6B7280",
             marginTop: "6px",
             marginBottom: 0,
@@ -83,11 +83,11 @@ export default function Screen2({ onCompare, onBack }) {
           }}
           style={{
             marginTop: "24px",
-            marginBottom: "28px",
+            marginBottom: "32px",
             border: canCompare ? "2px solid #7B00D4" : "2px solid #D1D5DB",
             borderRadius: "999px",
             padding: "8px 24px",
-            fontSize: "14px",
+            fontSize: "13px",
             fontWeight: "600",
             color: canCompare ? "#7B00D4" : "#9CA3AF",
             backgroundColor: "#FFFFFF",

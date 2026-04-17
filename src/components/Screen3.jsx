@@ -34,7 +34,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
 
       <h1
         style={{
-          fontSize: "28px",
+          fontSize: "26px",
           fontWeight: "700",
           color: "#111827",
           margin: 0,
@@ -44,7 +44,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
       </h1>
       <p
         style={{
-          fontSize: "14px",
+          fontSize: "13px",
           color: "#6B7280",
           marginTop: "6px",
         }}
@@ -63,7 +63,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
         }}
       >
-        <table style={{ width: "100%", textAlign: "left", fontSize: "14px", borderCollapse: "collapse" }}>
+        <table style={{ width: "100%", textAlign: "left", fontSize: "13px", borderCollapse: "collapse" }}>
           <thead>
             <tr style={{ borderBottom: "1px solid #E5E7EB", backgroundColor: "#F9FAFB" }}>
               <th
@@ -83,7 +83,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                   key={c.id}
                   style={{
                     padding: "14px 24px",
-                    fontSize: "12px",
+                    fontSize: "11px",
                     fontWeight: "600",
                     color: "#7B00D4",
                     textTransform: "uppercase",
