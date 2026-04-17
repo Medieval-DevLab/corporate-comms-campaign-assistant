@@ -31,7 +31,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
           src="/Accenture logo.png"
           alt="Accenture"
           style={{
-            height: "40px",
+            height: "36px",
             width: "auto",
             objectFit: "contain",
             display: "block",

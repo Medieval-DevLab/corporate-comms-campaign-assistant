@@ -56,7 +56,7 @@ export default function Navbar({ projectName, onNavigateHome }) {
         <img
           src="/Accenture logo.png"
           alt="Accenture"
-          style={{ height: "32px", width: "auto", objectFit: "contain" }}
+          style={{ height: "28px", width: "auto", objectFit: "contain" }}
         />
         <div
           style={{
