@@ -193,14 +193,14 @@ export default function Screen3({ selectedCampaigns, onBack }) {
                   </div>
                   <div
                     style={{
-                      fontSize: "13px",
-                      fontWeight: "700",
-                      color: "#111827",
-                      lineHeight: "1.4",
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      color: "#6B7280",
+                      lineHeight: 1.4,
                       marginTop: "4px",
                     }}
                   >
-                    {c.title}
+                    {c.title.replace(/"/g, "")}
                   </div>
                 </th>
               ))}
