@@ -75,7 +75,7 @@ export default function MultiSelectDropdown({
             height: "42px",
             backgroundColor: "#FFFFFF",
             border: "1px solid #D1D5DB",
-            borderRadius: "8px",
+            borderRadius: "10px",
             padding: "0 12px",
             fontSize: "14px",
             color: selected.length > 0 ? "#374151" : "#9CA3AF",

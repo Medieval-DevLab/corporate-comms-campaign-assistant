@@ -20,9 +20,9 @@ export default function App() {
       <Navbar />
       <div
         style={{
-          maxWidth: "860px",
+          maxWidth: "900px",
           margin: "0 auto",
-          padding: "48px 24px",
+          padding: "40px 48px",
         }}
       >
         {screen === "input" && (

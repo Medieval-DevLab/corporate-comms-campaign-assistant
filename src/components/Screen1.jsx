@@ -70,11 +70,12 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
       <div style={{ marginBottom: "32px" }}>
         <h1
           style={{
-            fontSize: "32px",
+            fontSize: "28px",
             fontWeight: "700",
             color: "#111827",
             lineHeight: "1.2",
             marginBottom: "8px",
+            whiteSpace: "nowrap",
           }}
         >
           Welcome to Employee Communications Intelligence
@@ -108,6 +109,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             Describe your objective and audience. We&apos;ll surface ideas
             backed by engagement data.
           </p>
+          {/* Fix #8: outlined pill button with outlined circle-i icon */}
           <button
             type="button"
             onClick={onHowItWorks}
@@ -117,7 +119,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               gap: "6px",
               border: "1px solid #D1D5DB",
               borderRadius: "999px",
-              padding: "6px 14px",
+              padding: "6px 16px",
               fontSize: "13px",
               color: "#374151",
               backgroundColor: "#FFFFFF",
@@ -132,14 +134,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               fill="none"
               style={{ flexShrink: 0 }}
             >
-              <circle cx="7" cy="7" r="6" stroke="#9CA3AF" strokeWidth="1.2" />
+              <circle cx="7" cy="7" r="6" stroke="#6B7280" strokeWidth="1.2" />
               <path
                 d="M7 6.5V9.5"
-                stroke="#9CA3AF"
+                stroke="#6B7280"
                 strokeWidth="1.2"
                 strokeLinecap="round"
               />
-              <circle cx="7" cy="4.8" r="0.6" fill="#9CA3AF" />
+              <circle cx="7" cy="4.8" r="0.6" fill="#6B7280" />
             </svg>
             How it works?
           </button>
@@ -157,6 +159,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           >
             Campaign Objective
           </label>
+          {/* Fix #9: sub-label kept */}
           <p
             style={{
               fontSize: "13px",
@@ -167,6 +170,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           >
             Brief about Campaign Objective
           </p>
+          {/* Fix #5: textarea border-radius 12px */}
           <textarea
             value={objective}
             onChange={(e) => setObjective(e.target.value)}
@@ -175,7 +179,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               width: "100%",
               minHeight: "110px",
               border: "1px solid #D1D5DB",
-              borderRadius: "8px",
+              borderRadius: "12px",
               padding: "12px",
               fontSize: "14px",
               color: "#111827",
@@ -192,13 +196,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               e.target.style.padding = "12px";
             }}
           />
+          {/* Fix #7: marginBottom 24px after hint to first dropdown row */}
           <p
             style={{
               fontSize: "13px",
               color: "#9CA3AF",
               fontStyle: "italic",
               marginTop: "8px",
-              marginBottom: "28px",
+              marginBottom: "24px",
             }}
           >
             The more context you provide, the stronger the signal.
@@ -229,13 +234,13 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Channel Preference + Geography */}
+        {/* Channel Preference + Geography — Fix #7: marginTop 20px */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "24px",
-            marginTop: "24px",
+            marginTop: "20px",
           }}
         >
           <MultiSelectDropdown
@@ -254,8 +259,8 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Campaign Window */}
-        <div style={{ marginTop: "24px", width: "50%" }}>
+        {/* Campaign Window — Fix #7: marginTop 20px */}
+        <div style={{ marginTop: "20px", width: "50%" }}>
           <MultiSelectDropdown
             label="Campaign Window"
             placeholder="Select campaign duration"
@@ -265,7 +270,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Number of Ideas to Surface */}
+        {/* Number of Ideas to Surface — Fix #7: marginTop 24px */}
         <div style={{ marginTop: "24px" }}>
           <label
             style={{
@@ -349,7 +354,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA — Fix #7: marginTop 32px, Fix #10: font-size 15px */}
         <div style={{ marginTop: "32px", textAlign: "center" }}>
           <p
             style={{
@@ -369,7 +374,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               backgroundColor: "#7B00D4",
               borderRadius: "12px",
               border: "none",
-              fontSize: "16px",
+              fontSize: "15px",
               fontWeight: "600",
               color: "#FFFFFF",
               cursor: "pointer",
