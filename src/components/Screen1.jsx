@@ -479,7 +479,7 @@ export default function Screen1({ onGenerate }) {
             <div
               style={{
                 backgroundColor: "#7B00D4",
-                padding: "40px 48px",
+                padding: "24px 32px",
                 position: "relative",
                 textAlign: "center",
               }}
@@ -509,18 +509,21 @@ export default function Screen1({ onGenerate }) {
               </button>
               <div
                 style={{
-                  fontSize: "26px",
+                  fontSize: "20px",
                   fontWeight: "700",
                   color: "#FFFFFF",
-                  marginBottom: "10px",
+                  marginBottom: "6px",
                 }}
               >
                 How it works?
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "12px",
                   color: "rgba(255,255,255,0.85)",
+                  lineHeight: 1.5,
+                  maxWidth: "480px",
+                  margin: "0 auto",
                 }}
               >
                 Generate intelligent campaign ideas &amp; strategies tailored to
@@ -529,15 +532,15 @@ export default function Screen1({ onGenerate }) {
             </div>
 
             {/* White content area */}
-            <div style={{ padding: "40px 48px" }}>
+            <div style={{ padding: "28px 32px" }}>
               {/* Section 1 */}
-              <div style={{ marginBottom: "28px" }}>
+              <div style={{ marginBottom: "20px" }}>
                 <div
                   style={{
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontWeight: "700",
                     color: "#111827",
-                    marginBottom: "8px",
+                    marginBottom: "6px",
                   }}
                 >
                   What this is?
@@ -555,13 +558,13 @@ export default function Screen1({ onGenerate }) {
               </div>
 
               {/* Section 2 */}
-              <div style={{ marginBottom: "28px" }}>
+              <div style={{ marginBottom: "20px" }}>
                 <div
                   style={{
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontWeight: "700",
                     color: "#111827",
-                    marginBottom: "8px",
+                    marginBottom: "6px",
                   }}
                 >
                   How it works
@@ -579,7 +582,7 @@ export default function Screen1({ onGenerate }) {
                   style={{
                     fontSize: "13px",
                     color: "#374151",
-                    lineHeight: "1.8",
+                    lineHeight: "1.7",
                     paddingLeft: "16px",
                   }}
                 >
@@ -598,10 +601,10 @@ export default function Screen1({ onGenerate }) {
               <div>
                 <div
                   style={{
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontWeight: "700",
                     color: "#111827",
-                    marginBottom: "8px",
+                    marginBottom: "6px",
                   }}
                 >
                   What it doesn&apos;t do?
