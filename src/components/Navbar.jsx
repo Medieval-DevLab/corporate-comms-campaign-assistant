@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+const logoSrc = `${import.meta.env.BASE_URL}Accenture logo.png`;
+
 export default function Navbar({ projectName, onNavigateHome }) {
   const [saved, setSaved] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
@@ -54,7 +56,7 @@ export default function Navbar({ projectName, onNavigateHome }) {
       {/* Left side */}
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
-          src="/Accenture logo.png"
+          src={logoSrc}
           alt="Accenture"
           style={{ height: "28px", width: "auto", objectFit: "contain" }}
         />

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const logoSrc = `${import.meta.env.BASE_URL}Accenture logo.png`;
+
 export default function HomeScreen({ onStartProject, onExploreFree }) {
   const [showModal, setShowModal] = useState(false);
   const [nameInput, setNameInput] = useState("");
@@ -28,7 +30,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
       >
         {/* Logo */}
         <img
-          src="/Accenture logo.png"
+          src={logoSrc}
           alt="Accenture"
           style={{
             height: "36px",
