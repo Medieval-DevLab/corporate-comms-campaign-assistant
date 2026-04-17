@@ -13,33 +13,35 @@ export default function App() {
     <div className="min-h-screen bg-[#F3F4F6]">
       <Navbar />
 
-      {screen === "input" && (
-        <Screen1
-          onGenerate={() => setScreen("output")}
-          onHowItWorks={() => setScreen("how")}
-        />
-      )}
+      <div className="mx-auto max-w-3xl px-6 py-12">
+        {screen === "input" && (
+          <Screen1
+            onGenerate={() => setScreen("output")}
+            onHowItWorks={() => setScreen("how")}
+          />
+        )}
 
-      {screen === "output" && (
-        <Screen2
-          onBack={() => setScreen("input")}
-          onCompare={(selected) => {
-            setComparedCampaigns(selected);
-            setScreen("compare");
-          }}
-        />
-      )}
+        {screen === "output" && (
+          <Screen2
+            onBack={() => setScreen("input")}
+            onCompare={(selected) => {
+              setComparedCampaigns(selected);
+              setScreen("compare");
+            }}
+          />
+        )}
 
-      {screen === "compare" && (
-        <Screen3
-          selectedCampaigns={comparedCampaigns}
-          onBack={() => setScreen("output")}
-        />
-      )}
+        {screen === "compare" && (
+          <Screen3
+            selectedCampaigns={comparedCampaigns}
+            onBack={() => setScreen("output")}
+          />
+        )}
 
-      {screen === "how" && (
-        <HowItWorks onBack={() => setScreen("input")} />
-      )}
+        {screen === "how" && (
+          <HowItWorks onBack={() => setScreen("input")} />
+        )}
+      </div>
     </div>
   );
 }

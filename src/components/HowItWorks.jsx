@@ -1,6 +1,6 @@
 export default function HowItWorks({ onBack }) {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12">
+    <>
       <button
         type="button"
         onClick={onBack}
@@ -98,6 +98,6 @@ export default function HowItWorks({ onBack }) {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

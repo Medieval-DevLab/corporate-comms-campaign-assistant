@@ -1,60 +1,38 @@
 export default function Navbar() {
   return (
-    <nav
-      className="sticky top-0 z-50 flex items-center justify-between bg-white px-6"
-      style={{ height: "56px", borderBottom: "1px solid #E5E7EB" }}
-    >
+    <nav className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-gray-200 bg-white px-6">
       {/* Left side */}
-      <div className="flex items-center gap-3">
-        {/* Purple triangle / play icon */}
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M4 2L18 10L4 18V2Z" fill="#7B00D4" />
-        </svg>
+      <div className="flex items-center">
+        {/* Purple solid triangle */}
+        <span style={{ color: "#7B00D4", fontSize: "18px", lineHeight: 1 }}>
+          ▶
+        </span>
 
         {/* Vertical divider */}
         <div
-          style={{
-            width: "1px",
-            height: "28px",
-            backgroundColor: "#E5E7EB",
-          }}
+          className="bg-gray-200"
+          style={{ width: "1px", height: "28px", margin: "0 16px" }}
         />
 
-        <span
-          className="font-semibold text-gray-900"
-          style={{ fontSize: "16px" }}
-        >
+        <span className="font-semibold text-gray-900" style={{ fontSize: "16px" }}>
           Employee Communications Intelligence
         </span>
       </div>
 
       {/* Right side */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
         <img
           src="https://i.pravatar.cc/36"
           alt="Avatar"
-          style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "50%",
-            objectFit: "cover",
-          }}
+          className="rounded-full object-cover"
+          style={{ width: "36px", height: "36px" }}
         />
         <div className="flex flex-col">
           <div className="flex items-center gap-1">
-            <span
-              className="font-semibold text-gray-900"
-              style={{ fontSize: "14px" }}
-            >
+            <span className="font-semibold text-gray-900" style={{ fontSize: "14px" }}>
               John Smith
             </span>
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-              fill="none"
-              style={{ marginTop: "1px" }}
-            >
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
               <path
                 d="M2.5 4L5 6.5L7.5 4"
                 stroke="#9CA3AF"
@@ -64,9 +42,7 @@ export default function Navbar() {
               />
             </svg>
           </div>
-          <span style={{ fontSize: "11px", color: "#9CA3AF" }}>
-            Designation
-          </span>
+          <span style={{ fontSize: "11px", color: "#9CA3AF" }}>Designation</span>
         </div>
       </div>
     </nav>

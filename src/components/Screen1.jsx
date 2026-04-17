@@ -38,10 +38,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
   };
 
   return (
-    <div
-      className="relative mx-auto"
-      style={{ maxWidth: "780px", padding: "48px 24px" }}
-    >
+    <>
       {/* Loading overlay */}
       {loading && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/70">
@@ -59,11 +56,16 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
       {/* Page heading — sits on gray bg, no card */}
       <h1
         className="font-bold"
-        style={{ fontSize: "36px", color: "#111827", lineHeight: "1.2" }}
+        style={{
+          fontSize: "32px",
+          color: "#111827",
+          lineHeight: "1.2",
+          marginBottom: "8px",
+        }}
       >
         Welcome to Employee Communications Intelligence
       </h1>
-      <p style={{ fontSize: "14px", color: "#6B7280", marginTop: "8px" }}>
+      <p style={{ fontSize: "14px", color: "#6B7280", marginBottom: "32px" }}>
         Generate intelligent campaign ideas &amp; strategies tailored to your
         audience, platform, and objectives.
       </p>
@@ -71,7 +73,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
       {/* White form card */}
       <div
         style={{
-          marginTop: "32px",
+          width: "100%",
           backgroundColor: "#FFFFFF",
           borderRadius: "16px",
           border: "1px solid #E5E7EB",
@@ -104,13 +106,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               fill="none"
               style={{ flexShrink: 0 }}
             >
-              <circle
-                cx="7"
-                cy="7"
-                r="6"
-                stroke="#9CA3AF"
-                strokeWidth="1.2"
-              />
+              <circle cx="7" cy="7" r="6" stroke="#9CA3AF" strokeWidth="1.2" />
               <path
                 d="M7 6.5V9.5"
                 stroke="#9CA3AF"
@@ -172,6 +168,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               color: "#9CA3AF",
               fontStyle: "italic",
               marginTop: "8px",
+              marginBottom: "28px",
             }}
           >
             The more context you provide, the stronger the signal.
@@ -179,10 +176,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Audience Segment + Industry */}
-        <div
-          className="grid grid-cols-2"
-          style={{ gap: "24px", marginTop: "28px" }}
-        >
+        <div className="grid grid-cols-2 gap-6">
           <MultiSelectDropdown
             label="Audience Segment"
             subLabel="Select target audience"
@@ -200,10 +194,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Channel Preference + Geography */}
-        <div
-          className="grid grid-cols-2"
-          style={{ gap: "24px", marginTop: "24px" }}
-        >
+        <div className="grid grid-cols-2 gap-6" style={{ marginTop: "24px" }}>
           <MultiSelectDropdown
             label="Channel Preference"
             subLabel="Select communication channel"
@@ -239,10 +230,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           >
             Number of Ideas to Surface
           </label>
-          <div
-            className="flex items-center"
-            style={{ marginTop: "12px" }}
-          >
+          <div className="flex items-center" style={{ marginTop: "12px" }}>
             <button
               type="button"
               onClick={() => setIdeaCount((c) => Math.max(1, c - 1))}
@@ -342,6 +330,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

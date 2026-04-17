@@ -20,7 +20,7 @@ export default function Screen2({ onCompare, onBack }) {
   const canCompare = compareSet.size >= 2;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <>
       <div className="flex items-start justify-between">
         <div>
           <button
@@ -75,6 +75,6 @@ export default function Screen2({ onCompare, onBack }) {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }

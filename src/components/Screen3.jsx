@@ -2,7 +2,7 @@ import { comparisonDimensions } from "../data/campaigns";
 
 export default function Screen3({ selectedCampaigns, onBack }) {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <>
       <button
         type="button"
         onClick={onBack}
@@ -79,6 +79,6 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 }
