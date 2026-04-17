@@ -8,7 +8,7 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
     <div
       style={{
         minHeight: "100vh",
-        background: "#F3F4F6",
+        background: "linear-gradient(135deg, #4A00A0 0%, #7B00D4 50%, #9B30FF 100%)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -17,62 +17,91 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
     >
       <div
         style={{
-          background: "#FFFFFF",
-          borderRadius: "20px",
-          padding: "56px 64px",
-          textAlign: "center",
-          maxWidth: "480px",
+          background: "rgba(255, 255, 255, 0.97)",
+          borderRadius: "24px",
+          padding: "52px 56px",
+          maxWidth: "460px",
           width: "90%",
-          boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-          border: "1px solid #E5E7EB",
+          textAlign: "center",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
         }}
       >
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 36 36"
-          fill="none"
-          style={{ marginBottom: "20px" }}
-        >
-          <polygon points="6,4 6,16 22,10" fill="#7B00D4" />
-          <polygon points="6,20 6,32 22,26" fill="#7B00D4" />
-        </svg>
+        {/* Logo */}
+        <img
+          src="/Accenture logo.png"
+          alt="Accenture"
+          style={{
+            height: "40px",
+            width: "auto",
+            objectFit: "contain",
+            display: "block",
+            margin: "0 auto 24px auto",
+          }}
+        />
 
+        {/* Product name */}
         <div
           style={{
-            fontSize: "20px",
+            fontSize: "22px",
             fontWeight: 700,
             color: "#111827",
-            marginBottom: "8px",
+            lineHeight: 1.3,
+            marginBottom: "10px",
+            letterSpacing: "-0.02em",
           }}
         >
-          Corporate Communications Campaign Assistant
+          Corporate Communications
+          <br />
+          Campaign Assistant
         </div>
 
+        {/* Tagline */}
         <div
           style={{
             fontSize: "13px",
             color: "#6B7280",
-            marginBottom: "40px",
+            lineHeight: 1.6,
+            maxWidth: "320px",
+            margin: "0 auto 36px auto",
           }}
         >
-          Generate intelligent campaign ideas backed by engagement data.
+          Surface campaign ideas backed by real engagement data.
         </div>
 
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+        {/* Divider */}
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background: "#F3F4F6",
+            marginBottom: "28px",
+          }}
+        />
+
+        {/* Buttons */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            width: "100%",
+          }}
+        >
           <button
             type="button"
             onClick={() => setShowModal(true)}
             style={{
-              padding: "12px 28px",
+              width: "100%",
+              padding: "14px",
               fontSize: "14px",
               fontWeight: "600",
               background: "#7B00D4",
               color: "#FFFFFF",
               border: "none",
-              borderRadius: "10px",
+              borderRadius: "12px",
               cursor: "pointer",
               fontFamily: "inherit",
+              letterSpacing: "0.01em",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#6500B0")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#7B00D4")}
@@ -83,13 +112,14 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
             type="button"
             onClick={onExploreFree}
             style={{
-              padding: "12px 28px",
+              width: "100%",
+              padding: "14px",
               fontSize: "14px",
-              fontWeight: "600",
+              fontWeight: "500",
               background: "#FFFFFF",
               color: "#7B00D4",
-              border: "2px solid #7B00D4",
-              borderRadius: "10px",
+              border: "1.5px solid #7B00D4",
+              borderRadius: "12px",
               cursor: "pointer",
               fontFamily: "inherit",
             }}
@@ -98,6 +128,17 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
           >
             Explore Freely
           </button>
+        </div>
+
+        {/* Footer text */}
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#9CA3AF",
+            marginTop: "24px",
+          }}
+        >
+          Powered by Accenture engagement intelligence
         </div>
       </div>
 
