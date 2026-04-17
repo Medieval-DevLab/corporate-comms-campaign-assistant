@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MultiSelectDropdown from "./MultiSelectDropdown";
 
 const AUDIENCE_OPTIONS = [
@@ -19,7 +19,7 @@ const CHANNEL_OPTIONS = ["GMA", "Portal", "Std. Mailer", "Viva Engage"];
 const GEOGRAPHY_OPTIONS = ["NA", "APAC", "EMEA", "ANZ"];
 const WINDOW_OPTIONS = ["This Quarter", "Next Quarter", "H2", "Full Year"];
 
-export default function Screen1({ onGenerate, onHowItWorks }) {
+export default function Screen1({ onGenerate }) {
   const [objective, setObjective] = useState("");
   const [audience, setAudience] = useState([]);
   const [industry, setIndustry] = useState([]);
@@ -28,18 +28,33 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
   const [campaignWindow, setCampaignWindow] = useState([]);
   const [ideaCount, setIdeaCount] = useState(3);
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
 
   const handleGenerate = () => {
     setLoading(true);
+    setProgress(0);
     setTimeout(() => {
       setLoading(false);
+      setProgress(0);
       onGenerate();
     }, 4000);
   };
 
+  useEffect(() => {
+    if (!loading) return;
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + 100 / 80;
+        return next >= 100 ? 100 : next;
+      });
+    }, 50);
+    return () => clearInterval(interval);
+  }, [loading]);
+
   return (
     <>
-      {/* Loading overlay modal */}
+      {/* Loading overlay modal with progress bar */}
       {loading && (
         <div
           style={{
@@ -67,15 +82,23 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           >
             <div
               style={{
-                width: "48px",
-                height: "48px",
-                border: "3px solid #E5E7EB",
-                borderTopColor: "#7B00D4",
-                borderRadius: "50%",
-                animation: "spin 0.9s linear infinite",
-                margin: "0 auto 24px auto",
+                width: "100%",
+                height: "6px",
+                backgroundColor: "#E5E7EB",
+                borderRadius: "999px",
+                marginBottom: "28px",
               }}
-            />
+            >
+              <div
+                style={{
+                  height: "100%",
+                  backgroundColor: "#7B00D4",
+                  borderRadius: "999px",
+                  width: `${progress}%`,
+                  transition: "width 0.05s linear",
+                }}
+              />
+            </div>
             <div
               style={{
                 fontSize: "20px",
@@ -90,7 +113,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               Analyzing your inputs to create targeted campaign ideas
             </div>
           </div>
-          <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
         </div>
       )}
 
@@ -141,7 +163,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           </p>
           <button
             type="button"
-            onClick={onHowItWorks}
+            onClick={() => setShowHowItWorks(true)}
             style={{
               display: "flex",
               alignItems: "center",
@@ -424,6 +446,182 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           </button>
         </div>
       </div>
+
+      {/* How It Works modal */}
+      {showHowItWorks && (
+        <div
+          onClick={() => setShowHowItWorks(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: "680px",
+              maxWidth: "90vw",
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              overflow: "hidden",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+            }}
+          >
+            {/* Purple header banner */}
+            <div
+              style={{
+                backgroundColor: "#7B00D4",
+                padding: "40px 48px",
+                position: "relative",
+                textAlign: "center",
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setShowHowItWorks(false)}
+                style={{
+                  position: "absolute",
+                  top: "16px",
+                  right: "16px",
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  border: "2px solid #FFFFFF",
+                  backgroundColor: "transparent",
+                  color: "#FFFFFF",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "inherit",
+                }}
+              >
+                ×
+              </button>
+              <div
+                style={{
+                  fontSize: "28px",
+                  fontWeight: "700",
+                  color: "#FFFFFF",
+                  marginBottom: "10px",
+                }}
+              >
+                How it works?
+              </div>
+              <div
+                style={{
+                  fontSize: "14px",
+                  color: "rgba(255,255,255,0.85)",
+                }}
+              >
+                Generate intelligent campaign ideas &amp; strategies tailored to
+                your audience, platform, and objectives.
+              </div>
+            </div>
+
+            {/* White content area */}
+            <div style={{ padding: "40px 48px" }}>
+              {/* Section 1 */}
+              <div style={{ marginBottom: "28px" }}>
+                <div
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                    color: "#111827",
+                    marginBottom: "8px",
+                  }}
+                >
+                  What this is?
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#374151",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  Analyses engagement data across your employee communications
+                  to surface ranked ideas — backed by evidence, not instinct.
+                </div>
+              </div>
+
+              {/* Section 2 */}
+              <div style={{ marginBottom: "28px" }}>
+                <div
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                    color: "#111827",
+                    marginBottom: "8px",
+                  }}
+                >
+                  How it works
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Four steps, displayed visually in sequence:
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#374151",
+                    lineHeight: "1.8",
+                    paddingLeft: "16px",
+                  }}
+                >
+                  • Input your objective and audience
+                  <br />
+                  • AI runs correlation and lift analysis across historical
+                  engagement data
+                  <br />
+                  • Ranked ideas are surfaced with predicted engagement,
+                  benchmarks, and evidence
+                  <br />• You decide what to do with them
+                </div>
+              </div>
+
+              {/* Section 3 */}
+              <div>
+                <div
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                    color: "#111827",
+                    marginBottom: "8px",
+                  }}
+                >
+                  What it doesn&apos;t do?
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#374151",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  This platform tells you what the data says will work. Format,
+                  frequency, timing and execution are entirely your call.
+                  Nothing is planned, scheduled, or executed on your behalf.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

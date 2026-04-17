@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Screen1 from "./components/Screen1";
 import Screen2 from "./components/Screen2";
 import Screen3 from "./components/Screen3";
-import HowItWorks from "./components/HowItWorks";
+
 
 export default function App() {
   const [screen, setScreen] = useState("input");
@@ -28,7 +28,6 @@ export default function App() {
         {screen === "input" && (
           <Screen1
             onGenerate={() => setScreen("output")}
-            onHowItWorks={() => setScreen("how")}
           />
         )}
 
@@ -49,9 +48,6 @@ export default function App() {
           />
         )}
 
-        {screen === "how" && (
-          <HowItWorks onBack={() => setScreen("input")} />
-        )}
       </div>
     </div>
   );
