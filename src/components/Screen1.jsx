@@ -215,14 +215,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         >
           <MultiSelectDropdown
             label="Audience Segment"
-            subLabel="Select target audience"
+            placeholder="Select target audience"
             options={AUDIENCE_OPTIONS}
             selected={audience}
             onChange={setAudience}
           />
           <MultiSelectDropdown
             label="Industry"
-            subLabel="Select industry vertical"
+            placeholder="Select industry vertical"
             options={INDUSTRY_OPTIONS}
             selected={industry}
             onChange={setIndustry}
@@ -240,14 +240,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         >
           <MultiSelectDropdown
             label="Channel Preference"
-            subLabel="Select communication channel"
+            placeholder="Select communication channel"
             options={CHANNEL_OPTIONS}
             selected={channel}
             onChange={setChannel}
           />
           <MultiSelectDropdown
             label="Geography"
-            subLabel="Select target region"
+            placeholder="Select target region"
             options={GEOGRAPHY_OPTIONS}
             selected={geography}
             onChange={setGeography}
@@ -258,7 +258,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         <div style={{ marginTop: "24px", width: "50%" }}>
           <MultiSelectDropdown
             label="Campaign Window"
-            subLabel="Select campaign duration"
+            placeholder="Select campaign duration"
             options={WINDOW_OPTIONS}
             selected={campaignWindow}
             onChange={setCampaignWindow}

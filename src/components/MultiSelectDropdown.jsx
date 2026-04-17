@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 export default function MultiSelectDropdown({
   label,
   subLabel,
+  placeholder = "Select Option",
   options,
   selected,
   onChange,
@@ -29,7 +30,7 @@ export default function MultiSelectDropdown({
 
   const displayText =
     selected.length === 0
-      ? "Select Option"
+      ? placeholder
       : selected.length === 1
         ? selected[0]
         : `${selected.length} selected`;
