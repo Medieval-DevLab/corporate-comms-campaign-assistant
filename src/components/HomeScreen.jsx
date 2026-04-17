@@ -25,6 +25,9 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
           maxWidth: "460px",
           width: "90%",
           textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
         }}
       >
@@ -132,16 +135,6 @@ export default function HomeScreen({ onStartProject, onExploreFree }) {
           </button>
         </div>
 
-        {/* Footer text */}
-        <div
-          style={{
-            fontSize: "11px",
-            color: "#9CA3AF",
-            marginTop: "24px",
-          }}
-        >
-          Powered by Accenture engagement intelligence
-        </div>
       </div>
 
       {/* Project name modal */}
