@@ -17,7 +17,7 @@ export default function App() {
         fontFamily: "Inter, sans-serif",
       }}
     >
-      <Navbar />
+      <Navbar onNavigateHome={() => setScreen("input")} />
       <div
         style={{
           maxWidth: "1000px",
