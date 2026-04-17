@@ -36,7 +36,7 @@ export default function Navbar() {
             whiteSpace: "nowrap",
           }}
         >
-          Employee Communications Intelligence
+          Corporate Communications Campaign Assistant
         </span>
       </div>
 

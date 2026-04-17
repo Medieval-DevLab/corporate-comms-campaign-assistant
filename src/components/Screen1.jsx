@@ -128,7 +128,7 @@ export default function Screen1({ onGenerate }) {
             whiteSpace: "nowrap",
           }}
         >
-          Welcome to Employee Communications Intelligence
+          Welcome to Corporate Communications Campaign Assistant
         </h1>
         <p style={{ fontSize: "13px", color: "#6B7280" }}>
           Generate intelligent campaign ideas &amp; strategies tailored to your

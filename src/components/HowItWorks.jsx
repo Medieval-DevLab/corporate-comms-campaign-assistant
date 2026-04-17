@@ -28,7 +28,7 @@ export default function HowItWorks({ onBack }) {
       <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
         <h2 className="text-xl font-bold text-gray-900">What It Does</h2>
         <p className="mt-3 leading-relaxed text-gray-600">
-          Employee Communications Intelligence analyzes your campaign objective,
+          Corporate Communications Campaign Assistant analyzes your campaign objective,
           audience, channel preferences, and timing to generate data-backed
           campaign ideas. Each idea comes with a recommended subject line,
           messaging framework, visual direction, engagement estimate, and KPIs —
