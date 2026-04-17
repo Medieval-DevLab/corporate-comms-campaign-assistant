@@ -67,7 +67,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
       )}
 
       {/* Page heading */}
-      <div style={{ marginBottom: "32px" }}>
+      <div>
         <h1
           style={{
             fontSize: "28px",
@@ -94,6 +94,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           border: "1px solid #E5E7EB",
           boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
           padding: "32px",
+          marginTop: "40px",
           width: "100%",
         }}
       >
@@ -103,6 +104,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "space-between",
+            marginBottom: "28px",
           }}
         >
           <p style={{ fontSize: "13px", color: "#6B7280", maxWidth: "480px" }}>
@@ -147,13 +149,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Campaign Objective */}
-        <div style={{ marginTop: "24px" }}>
+        <div>
           <label
             style={{
               display: "block",
               fontSize: "15px",
               fontWeight: "600",
               color: "#A100FF",
+              marginBottom: "4px",
             }}
           >
             Campaign Objective
@@ -162,7 +165,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             style={{
               fontSize: "13px",
               color: "#6B7280",
-              marginTop: "2px",
+              marginTop: "0",
               marginBottom: "8px",
             }}
           >
@@ -198,8 +201,8 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               fontSize: "13px",
               color: "#9CA3AF",
               fontStyle: "italic",
-              marginTop: "8px",
-              marginBottom: "24px",
+              marginTop: "10px",
+              marginBottom: "28px",
             }}
           >
             The more context you provide, the stronger the signal.
@@ -212,6 +215,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "24px",
+            marginBottom: "24px",
           }}
         >
           <MultiSelectDropdown
@@ -236,7 +240,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "24px",
-            marginTop: "20px",
+            marginBottom: "24px",
           }}
         >
           <MultiSelectDropdown
@@ -256,7 +260,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Campaign Window */}
-        <div style={{ marginTop: "20px", width: "50%" }}>
+        <div style={{ marginBottom: "28px", width: "50%" }}>
           <MultiSelectDropdown
             label="Campaign Window"
             placeholder="Select campaign duration"
@@ -267,7 +271,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* Number of Ideas to Surface */}
-        <div style={{ marginTop: "24px" }}>
+        <div style={{ marginBottom: "36px" }}>
           <label
             style={{
               display: "block",
@@ -351,12 +355,11 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
 
         {/* CTA */}
-        <div style={{ marginTop: "32px", textAlign: "center" }}>
+        <div style={{ textAlign: "center" }}>
           <p
             style={{
               fontSize: "13px",
               color: "#9CA3AF",
-              marginBottom: "12px",
             }}
           >
             Click below to generate the top campaign ideas
@@ -374,6 +377,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               fontWeight: "600",
               color: "#FFFFFF",
               cursor: "pointer",
+              marginTop: "10px",
               transition: "background-color 0.15s, transform 0.1s",
             }}
             onMouseEnter={(e) =>
