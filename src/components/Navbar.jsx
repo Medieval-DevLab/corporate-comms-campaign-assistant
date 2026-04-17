@@ -2,71 +2,73 @@ export default function Navbar() {
   return (
     <nav
       style={{
+        height: "72px",
         backgroundColor: "#FFFFFF",
-        borderBottom: "1px solid #E5E7EB",
-        height: "56px",
+        borderBottom: "2px solid #E5E7EB",
+        padding: "0 40px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 24px",
         position: "sticky",
         top: 0,
         zIndex: 50,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-        {/* Accenture-style two-bar chevron logo */}
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <polygon points="4,2 4,14 20,8" fill="#A100FF" />
-          <polygon points="4,18 4,30 20,24" fill="#A100FF" />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <polygon points="6,4 6,16 22,10" fill="#7B00D4" />
+          <polygon points="6,20 6,32 22,26" fill="#7B00D4" />
         </svg>
         <div
           style={{
             width: "1px",
-            height: "28px",
-            backgroundColor: "#E5E7EB",
+            height: "32px",
+            backgroundColor: "#D1D5DB",
+            margin: "0 20px",
           }}
         />
         <span
-          style={{ fontWeight: "600", fontSize: "15px", color: "#000000" }}
+          style={{
+            fontSize: "17px",
+            fontWeight: "600",
+            color: "#111827",
+            whiteSpace: "nowrap",
+          }}
         >
           Employee Communications Intelligence
         </span>
       </div>
 
       <div style={{ display: "flex", alignItems: "center" }}>
-        {/* Right-side vertical divider */}
         <div
           style={{
             width: "1px",
-            height: "36px",
-            backgroundColor: "#E5E7EB",
-            margin: "0 20px",
+            height: "32px",
+            backgroundColor: "#D1D5DB",
+            margin: "0 24px",
           }}
         />
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <img
-            src="https://i.pravatar.cc/36"
-            alt="Avatar"
-            style={{
-              width: "36px",
-              height: "36px",
-              borderRadius: "50%",
-              objectFit: "cover",
-            }}
-          />
-          <div>
-            <div
-              style={{ fontWeight: "600", fontSize: "14px", color: "#000000" }}
-            >
-              John Smith{" "}
-              <span style={{ color: "#9CA3AF", fontSize: "12px" }}>
-                &#8744;
-              </span>
-            </div>
-            <div style={{ fontSize: "12px", color: "#9CA3AF" }}>
-              Designation
-            </div>
+        <img
+          src="https://i.pravatar.cc/40"
+          alt="Avatar"
+          style={{
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            marginRight: "10px",
+          }}
+        />
+        <div>
+          <div
+            style={{ fontSize: "15px", fontWeight: "600", color: "#111827" }}
+          >
+            John Smith ∨
+          </div>
+          <div
+            style={{ fontSize: "12px", color: "#9CA3AF", marginTop: "2px" }}
+          >
+            Designation
           </div>
         </div>
       </div>
