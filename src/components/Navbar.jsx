@@ -15,10 +15,10 @@ export default function Navbar() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-        {/* Two-bar chevron logo */}
+        {/* Accenture-style two-bar chevron logo */}
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <polygon points="4,2 4,14 20,8" fill="#7B00D4" />
-          <polygon points="4,18 4,30 20,24" fill="#7B00D4" />
+          <polygon points="4,2 4,14 20,8" fill="#A100FF" />
+          <polygon points="4,18 4,30 20,24" fill="#A100FF" />
         </svg>
         <div
           style={{
@@ -28,7 +28,7 @@ export default function Navbar() {
           }}
         />
         <span
-          style={{ fontWeight: "600", fontSize: "15px", color: "#111827" }}
+          style={{ fontWeight: "600", fontSize: "15px", color: "#000000" }}
         >
           Employee Communications Intelligence
         </span>
@@ -57,7 +57,7 @@ export default function Navbar() {
           />
           <div>
             <div
-              style={{ fontWeight: "600", fontSize: "14px", color: "#111827" }}
+              style={{ fontWeight: "600", fontSize: "14px", color: "#000000" }}
             >
               John Smith{" "}
               <span style={{ color: "#9CA3AF", fontSize: "12px" }}>

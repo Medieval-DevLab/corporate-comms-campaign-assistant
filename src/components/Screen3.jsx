@@ -38,7 +38,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
               {selectedCampaigns.map((c) => (
                 <th
                   key={c.id}
-                  className="px-6 py-4 text-xs font-semibold text-purple-700 uppercase tracking-wide"
+                  className="px-6 py-4 text-xs font-semibold text-purple-500 uppercase tracking-wide"
                 >
                   {c.name}
                 </th>

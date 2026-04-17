@@ -56,8 +56,8 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             style={{
               width: "24px",
               height: "24px",
-              border: "3px solid #e9d5ff",
-              borderTopColor: "#7B00D4",
+              border: "3px solid #ebccff",
+              borderTopColor: "#A100FF",
               borderRadius: "50%",
               animation: "spin 0.8s linear infinite",
             }}
@@ -66,13 +66,13 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
         </div>
       )}
 
-      {/* Page heading — on gray bg, no card */}
+      {/* Page heading */}
       <div style={{ marginBottom: "32px" }}>
         <h1
           style={{
             fontSize: "28px",
             fontWeight: "700",
-            color: "#111827",
+            color: "#000000",
             lineHeight: "1.2",
             marginBottom: "8px",
             whiteSpace: "nowrap",
@@ -109,7 +109,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             Describe your objective and audience. We&apos;ll surface ideas
             backed by engagement data.
           </p>
-          {/* Fix #8: outlined pill button with outlined circle-i icon */}
           <button
             type="button"
             onClick={onHowItWorks}
@@ -154,12 +153,11 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               display: "block",
               fontSize: "15px",
               fontWeight: "600",
-              color: "#7B00D4",
+              color: "#A100FF",
             }}
           >
             Campaign Objective
           </label>
-          {/* Fix #9: sub-label kept */}
           <p
             style={{
               fontSize: "13px",
@@ -170,7 +168,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           >
             Brief about Campaign Objective
           </p>
-          {/* Fix #5: textarea border-radius 12px */}
           <textarea
             value={objective}
             onChange={(e) => setObjective(e.target.value)}
@@ -182,13 +179,13 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               borderRadius: "12px",
               padding: "12px",
               fontSize: "14px",
-              color: "#111827",
+              color: "#000000",
               fontFamily: "inherit",
               resize: "vertical",
               outline: "none",
             }}
             onFocus={(e) => {
-              e.target.style.border = "2px solid #7B00D4";
+              e.target.style.border = "2px solid #A100FF";
               e.target.style.padding = "11px";
             }}
             onBlur={(e) => {
@@ -196,7 +193,6 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               e.target.style.padding = "12px";
             }}
           />
-          {/* Fix #7: marginBottom 24px after hint to first dropdown row */}
           <p
             style={{
               fontSize: "13px",
@@ -234,7 +230,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Channel Preference + Geography — Fix #7: marginTop 20px */}
+        {/* Channel Preference + Geography */}
         <div
           style={{
             display: "grid",
@@ -259,7 +255,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Campaign Window — Fix #7: marginTop 20px */}
+        {/* Campaign Window */}
         <div style={{ marginTop: "20px", width: "50%" }}>
           <MultiSelectDropdown
             label="Campaign Window"
@@ -270,14 +266,14 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           />
         </div>
 
-        {/* Number of Ideas to Surface — Fix #7: marginTop 24px */}
+        {/* Number of Ideas to Surface */}
         <div style={{ marginTop: "24px" }}>
           <label
             style={{
               display: "block",
               fontSize: "15px",
               fontWeight: "600",
-              color: "#7B00D4",
+              color: "#A100FF",
             }}
           >
             Number of Ideas to Surface
@@ -318,7 +314,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               style={{
                 fontSize: "24px",
                 fontWeight: "700",
-                color: "#111827",
+                color: "#000000",
                 margin: "0 16px",
                 minWidth: "20px",
                 textAlign: "center",
@@ -354,7 +350,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
           </div>
         </div>
 
-        {/* CTA — Fix #7: marginTop 32px, Fix #10: font-size 15px */}
+        {/* CTA */}
         <div style={{ marginTop: "32px", textAlign: "center" }}>
           <p
             style={{
@@ -371,7 +367,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             style={{
               width: "100%",
               height: "52px",
-              backgroundColor: "#7B00D4",
+              backgroundColor: "#A100FF",
               borderRadius: "12px",
               border: "none",
               fontSize: "15px",
@@ -381,10 +377,10 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               transition: "background-color 0.15s, transform 0.1s",
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#6500B0")
+              (e.currentTarget.style.backgroundColor = "#8a00db")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#7B00D4")
+              (e.currentTarget.style.backgroundColor = "#A100FF")
             }
             onMouseDown={(e) =>
               (e.currentTarget.style.transform = "scale(0.99)")

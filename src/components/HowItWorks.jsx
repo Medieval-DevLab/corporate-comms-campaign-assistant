@@ -63,7 +63,7 @@ export default function HowItWorks({ onBack }) {
             },
           ].map((item) => (
             <div key={item.step} className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-700 text-sm font-bold text-white">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500 text-sm font-bold text-white">
                 {item.step}
               </div>
               <div>

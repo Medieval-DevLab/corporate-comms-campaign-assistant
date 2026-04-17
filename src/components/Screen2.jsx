@@ -57,7 +57,7 @@ export default function Screen2({ onCompare, onBack }) {
           }}
           className={`shrink-0 rounded-2xl px-6 py-3 text-sm font-semibold transition-colors ${
             canCompare
-              ? "cursor-pointer bg-[#7B00D4] text-white hover:bg-purple-800"
+              ? "cursor-pointer bg-[#A100FF] text-white hover:bg-purple-600"
               : "cursor-not-allowed bg-gray-200 text-gray-400"
           }`}
         >

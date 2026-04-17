@@ -39,7 +39,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
     <div
       className={`rounded-2xl border bg-white shadow-sm transition-all ${
         isCompare
-          ? "border-2 border-purple-700 ring-2 ring-purple-100"
+          ? "border-2 border-purple-500 ring-2 ring-purple-100"
           : "border-gray-200"
       }`}
     >
@@ -57,7 +57,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             onClick={onToggleCompare}
             className={`shrink-0 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
               isCompare
-                ? "bg-purple-700 text-white"
+                ? "bg-purple-500 text-white"
                 : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -69,7 +69,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         <div className="mt-4 flex gap-4">
           <div className="rounded-lg bg-white/80 px-3 py-2 text-center shadow-sm">
             <p className="text-xs text-gray-500">Engagement</p>
-            <p className="text-sm font-bold text-purple-700">
+            <p className="text-sm font-bold text-purple-500">
               {campaign.estimatedEngagement}
             </p>
           </div>
@@ -232,7 +232,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             Not Relevant
           </button>
         </div>
-        <span className="rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700">
+        <span className="rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-500">
           {campaign.ctaText}
         </span>
       </div>

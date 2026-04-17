@@ -2,17 +2,17 @@
 
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --color-purple-50: #faf5ff;
-  --color-purple-100: #f3e8ff;
-  --color-purple-200: #e9d5ff;
-  --color-purple-300: #d8b4fe;
-  --color-purple-400: #c084fc;
-  --color-purple-500: #9b4dca;
-  --color-purple-600: #8b21c1;
-  --color-purple-700: #7B00D4;
-  --color-purple-800: #6200aa;
-  --color-purple-900: #4a0080;
-  --color-purple-950: #2e0066;
+  --color-purple-50: #f5eaff;
+  --color-purple-100: #ebccff;
+  --color-purple-200: #d699ff;
+  --color-purple-300: #c266ff;
+  --color-purple-400: #b833ff;
+  --color-purple-500: #A100FF;
+  --color-purple-600: #8a00db;
+  --color-purple-700: #7300b7;
+  --color-purple-800: #5c0093;
+  --color-purple-900: #45006f;
+  --color-purple-950: #2e004a;
 }
 
 body {

@@ -43,7 +43,7 @@ export default function MultiSelectDropdown({
             display: "block",
             fontSize: "15px",
             fontWeight: "600",
-            color: "#7B00D4",
+            color: "#A100FF",
           }}
         >
           {label}
@@ -155,8 +155,8 @@ export default function MultiSelectDropdown({
                       width: "16px",
                       height: "16px",
                       borderRadius: "3px",
-                      border: "1.5px solid #7B00D4",
-                      backgroundColor: checked ? "#7B00D4" : "#FFFFFF",
+                      border: "1.5px solid #A100FF",
+                      backgroundColor: checked ? "#A100FF" : "#FFFFFF",
                       flexShrink: 0,
                     }}
                   >
