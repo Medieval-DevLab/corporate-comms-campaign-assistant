@@ -1,6 +1,59 @@
-import { comparisonDimensions } from "../data/campaigns";
-
 export default function Screen3({ selectedCampaigns, onBack }) {
+  const sections = [
+    {
+      heading: "Campaign Overview",
+      rows: [
+        { label: "Campaign Name", key: "title" },
+        { label: "Campaign Type", key: "campaignType" },
+        { label: "Target Audience", key: "targetAudience" },
+        { label: "Geography", key: "geo" },
+      ],
+    },
+    {
+      heading: "Timing & Channels",
+      rows: [
+        { label: "Strongest Signal Channel", key: "strongestChannel" },
+        { label: "Peak Engagement Window", key: "peakWindow" },
+        { label: "Timing Restriction", key: "timingRestriction" },
+      ],
+    },
+    {
+      heading: "Performance Metrics",
+      rows: [
+        { label: "Open Rate", key: "openRate", highlight: true },
+        { label: "Click Rate", key: "clickRate", highlight: true },
+        { label: "Signal Strength", key: "signalStrength", highlight: true },
+        { label: "Organization Average", key: "orgAvg" },
+        { label: "Increase", key: "increase" },
+      ],
+    },
+    {
+      heading: "Evidence & Insights",
+      rows: [{ label: "Evidence Base", key: "evidence" }],
+    },
+  ];
+
+  const parsePercent = (val) => {
+    if (typeof val !== "string") return 0;
+    const match = val.match(/(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  };
+
+  const findBestIndex = (key) => {
+    let bestIdx = -1;
+    let bestVal = -1;
+    selectedCampaigns.forEach((c, i) => {
+      const v = parsePercent(c[key]);
+      if (v > bestVal) {
+        bestVal = v;
+        bestIdx = i;
+      }
+    });
+    return bestIdx;
+  };
+
+  let rowCounter = 0;
+
   return (
     <>
       <button
@@ -20,16 +73,7 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           fontFamily: "inherit",
         }}
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M10 12L6 8l4-4"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        Back to Results
+        ← Back to list
       </button>
 
       <h1
@@ -40,17 +84,19 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           margin: 0,
         }}
       >
-        Campaign Comparison
+        Campaign Idea Comparison
       </h1>
       <p
         style={{
           fontSize: "13px",
           color: "#6B7280",
           marginTop: "6px",
+          marginBottom: 0,
         }}
       >
-        Side-by-side comparison of your selected campaigns across key
-        dimensions.
+        Evaluate campaign strategies side by side based on audience, timing,
+        channels, and predicted performance metrics to identify the most
+        effective approach.
       </p>
 
       <div
@@ -60,71 +106,154 @@ export default function Screen3({ selectedCampaigns, onBack }) {
           border: "1px solid #E5E7EB",
           backgroundColor: "#FFFFFF",
           overflow: "hidden",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+          width: "100%",
         }}
       >
-        <table style={{ width: "100%", textAlign: "left", fontSize: "13px", borderCollapse: "collapse" }}>
+        <table
+          style={{
+            width: "100%",
+            textAlign: "left",
+            borderCollapse: "collapse",
+          }}
+        >
           <thead>
-            <tr style={{ borderBottom: "1px solid #E5E7EB", backgroundColor: "#F9FAFB" }}>
+            <tr style={{ borderBottom: "2px solid #F0F0F0" }}>
               <th
                 style={{
-                  padding: "14px 24px",
-                  fontSize: "12px",
+                  width: "180px",
+                  padding: "16px 20px",
+                  fontSize: "11px",
                   fontWeight: "600",
                   color: "#6B7280",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
+                  backgroundColor: "#FFFFFF",
                 }}
               >
-                Dimension
+                Attributes
               </th>
               {selectedCampaigns.map((c) => (
                 <th
                   key={c.id}
                   style={{
-                    padding: "14px 24px",
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    color: "#7B00D4",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
+                    padding: "16px 20px",
+                    backgroundColor: "#FFFFFF",
+                    verticalAlign: "top",
                   }}
                 >
-                  {c.label}
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: "600",
+                      color: "#7B00D4",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    {c.label}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "700",
+                      color: "#111827",
+                      lineHeight: "1.4",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {c.title}
+                  </div>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {comparisonDimensions.map((dim, i) => (
-              <tr
-                key={dim.key}
-                style={{
-                  borderBottom: "1px solid #F3F4F6",
-                  backgroundColor: i % 2 === 0 ? "#FFFFFF" : "#F9FAFB",
-                }}
-              >
-                <td
-                  style={{
-                    padding: "14px 24px",
-                    fontWeight: "500",
-                    color: "#374151",
-                  }}
-                >
-                  {dim.label}
-                </td>
-                {selectedCampaigns.map((c) => (
+            {sections.map((section) => {
+              const sectionRows = [];
+
+              sectionRows.push(
+                <tr key={`section-${section.heading}`}>
                   <td
-                    key={c.id}
-                    style={{ padding: "14px 24px", color: "#6B7280" }}
+                    colSpan={1 + selectedCampaigns.length}
+                    style={{
+                      background: "#F9FAFB",
+                      padding: "8px 20px",
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      color: "#9CA3AF",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.06em",
+                      borderTop: "1px solid #F0F0F0",
+                    }}
                   >
-                    {Array.isArray(c[dim.key])
-                      ? c[dim.key].join(", ")
-                      : c[dim.key]}
+                    {section.heading}
                   </td>
-                ))}
-              </tr>
-            ))}
+                </tr>
+              );
+
+              section.rows.forEach((row) => {
+                const currentRow = rowCounter;
+                rowCounter++;
+                const isEven = currentRow % 2 === 0;
+                const rowBg = isEven ? "#FAFAFA" : "#FFFFFF";
+
+                const bestIdx = row.highlight
+                  ? findBestIndex(row.key)
+                  : -1;
+
+                sectionRows.push(
+                  <tr
+                    key={row.key}
+                    style={{
+                      borderBottom: "1px solid #F5F5F5",
+                    }}
+                  >
+                    <td
+                      style={{
+                        padding: "14px 20px",
+                        fontSize: "12px",
+                        fontWeight: "600",
+                        color: "#7B00D4",
+                        verticalAlign: "top",
+                        whiteSpace: "nowrap",
+                        backgroundColor: rowBg,
+                      }}
+                    >
+                      {row.label}
+                    </td>
+                    {selectedCampaigns.map((c, i) => {
+                      const isBest = row.highlight && i === bestIdx;
+                      const val = c[row.key];
+
+                      return (
+                        <td
+                          key={c.id}
+                          style={{
+                            padding: "14px 20px",
+                            fontSize: "13px",
+                            color: isBest ? "#7B00D4" : "#374151",
+                            fontWeight: isBest ? "600" : "400",
+                            verticalAlign: "top",
+                            lineHeight: "1.5",
+                            backgroundColor: isBest ? "#F5F3FF" : rowBg,
+                          }}
+                        >
+                          {Array.isArray(val)
+                            ? val.map((item, idx) => (
+                                <div key={idx} style={{ marginBottom: idx < val.length - 1 ? "4px" : 0 }}>
+                                  {item}
+                                </div>
+                              ))
+                            : val}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              });
+
+              return sectionRows;
+            })}
           </tbody>
         </table>
       </div>
