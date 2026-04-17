@@ -578,67 +578,73 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         </div>
 
         {/* Feedback buttons */}
-        <div style={{ display: "flex", gap: "8px" }}>
-          <button
-            type="button"
-            onClick={() => setFeedback(feedback === "good" ? null : "good")}
-            style={{
-              border:
-                feedback === "good"
-                  ? "1px solid #16A34A"
-                  : "1px solid #E5E7EB",
-              borderRadius: "8px",
-              padding: "7px 20px",
-              fontSize: "12px",
-              fontWeight: "500",
-              backgroundColor: feedback === "good" ? "#F0FDF4" : "#FFFFFF",
-              color: feedback === "good" ? "#16A34A" : "#374151",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              lineHeight: "1.4",
-            }}
-          >
-            {feedback === "good" ? "✓ Looks Good" : "Looks Good"}
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              setFeedback(feedback === "not-relevant" ? null : "not-relevant")
-            }
-            style={{
-              border:
-                feedback === "not-relevant"
-                  ? "1px solid #DC2626"
-                  : "1px solid #E5E7EB",
-              borderRadius: "8px",
-              padding: "7px 20px",
-              fontSize: "12px",
-              fontWeight: "500",
-              backgroundColor:
-                feedback === "not-relevant" ? "#FEF2F2" : "#FFFFFF",
-              color: feedback === "not-relevant" ? "#DC2626" : "#374151",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              lineHeight: "1.4",
-            }}
-          >
-            {feedback === "not-relevant" ? "✕ Not Relevant" : "Not Relevant"}
-          </button>
-        </div>
-        {feedback && (
-          <div
-            style={{
-              fontSize: "12px",
-              color: feedback === "good" ? "#16A34A" : "#DC2626",
-              marginTop: "8px",
-              fontStyle: "italic",
-            }}
-          >
-            {feedback === "good"
-              ? "Got it! We'll surface more ideas like this."
-              : "Noted. We'll refine your results accordingly."}
+        <div style={{ borderTop: "1px solid #F0F0F0", paddingTop: "16px", marginTop: "4px" }}>
+          <div style={{ display: "flex", gap: "8px" }}>
+            <button
+              type="button"
+              onClick={() => setFeedback(feedback === "good" ? null : "good")}
+              style={{
+                border:
+                  feedback === "good"
+                    ? "1px solid #16A34A"
+                    : "1px solid #E5E7EB",
+                borderRadius: "8px",
+                padding: "7px 20px",
+                fontSize: "12px",
+                fontWeight: "500",
+                backgroundColor: feedback === "good" ? "#F0FDF4" : "#FFFFFF",
+                color: feedback === "good" ? "#16A34A" : "#374151",
+                cursor: "pointer",
+                fontFamily: "inherit",
+                lineHeight: "1.4",
+              }}
+            >
+              {feedback === "good" ? "✓ Looks Good" : "Looks Good"}
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setFeedback(feedback === "not-relevant" ? null : "not-relevant")
+              }
+              style={{
+                border:
+                  feedback === "not-relevant"
+                    ? "1px solid #DC2626"
+                    : "1px solid #E5E7EB",
+                borderRadius: "8px",
+                padding: "7px 20px",
+                fontSize: "12px",
+                fontWeight: "500",
+                backgroundColor:
+                  feedback === "not-relevant" ? "#FEF2F2" : "#FFFFFF",
+                color: feedback === "not-relevant" ? "#DC2626" : "#374151",
+                cursor: "pointer",
+                fontFamily: "inherit",
+                lineHeight: "1.4",
+              }}
+            >
+              {feedback === "not-relevant" ? "✕ Not Relevant" : "Not Relevant"}
+            </button>
           </div>
-        )}
+          {feedback && (
+            <div
+              style={{
+                fontSize: "12px",
+                fontStyle: "italic",
+                color: "#7C3AED",
+                backgroundColor: "#F5F3FF",
+                padding: "8px 12px",
+                borderRadius: "6px",
+                marginTop: "10px",
+                display: "inline-block",
+              }}
+            >
+              {feedback === "good"
+                ? "Got it! We'll surface more ideas like this."
+                : "Noted. We'll refine your results accordingly."}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
