@@ -19,6 +19,7 @@ function Tooltip({ text, children }) {
             backgroundColor: "#111827",
             color: "#FFFFFF",
             fontSize: "11px",
+            lineHeight: "1.4",
             padding: "6px 10px",
             borderRadius: "6px",
             whiteSpace: "nowrap",
@@ -53,6 +54,32 @@ function InfoIcon() {
   );
 }
 
+const labelStyle = {
+  fontSize: "11px",
+  fontWeight: "600",
+  color: "#7B00D4",
+  marginBottom: "3px",
+  textTransform: "uppercase",
+  letterSpacing: "0.03em",
+  lineHeight: "1.4",
+};
+
+const valueStyle = {
+  fontSize: "13px",
+  color: "#111827",
+  lineHeight: "1.4",
+};
+
+const footerLabelStyle = {
+  fontSize: "11px",
+  fontWeight: "600",
+  color: "#7B00D4",
+  textTransform: "uppercase",
+  letterSpacing: "0.03em",
+  marginBottom: "6px",
+  lineHeight: "1.4",
+};
+
 export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
   const [subjectLine, setSubjectLine] = useState(campaign.subjectLine);
   const [audienceEdit, setAudienceEdit] = useState(campaign.generatedAudience);
@@ -68,6 +95,8 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
     color: "#111827",
     fontFamily: "inherit",
     outline: "none",
+    lineHeight: "1.4",
+    backgroundColor: "#FFFFFF",
   };
 
   return (
@@ -78,6 +107,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         backgroundColor: "#FFFFFF",
         marginBottom: "28px",
         overflow: "hidden",
+        lineHeight: "1.4",
       }}
     >
       {/* ── HEADER ROW 1 ── */}
@@ -87,6 +117,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "16px 24px",
+          borderBottom: "1px solid #F0F0F0",
         }}
       >
         {/* Left: label + title + geo pill */}
@@ -95,30 +126,41 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            flexWrap: "wrap",
           }}
         >
           <span
-            style={{ color: "#7B00D4", fontSize: "12px", fontWeight: "600" }}
+            style={{
+              color: "#7B00D4",
+              fontSize: "12px",
+              fontWeight: "700",
+              lineHeight: "1.4",
+            }}
           >
             {campaign.label}
           </span>
           <span
-            style={{ fontSize: "14px", fontWeight: "700", color: "#111827" }}
+            style={{
+              fontSize: "14px",
+              fontWeight: "700",
+              color: "#111827",
+              lineHeight: "1.4",
+            }}
           >
             {campaign.title}
           </span>
           <span
             style={{
-              border: "1px solid #D1D5DB",
+              border: "1px solid #E5E7EB",
               borderRadius: "999px",
               padding: "2px 10px",
               fontSize: "11px",
-              color: "#374151",
+              color: "#6B7280",
+              backgroundColor: "#FFFFFF",
               display: "flex",
               alignItems: "center",
               gap: "4px",
               whiteSpace: "nowrap",
+              lineHeight: "1.4",
             }}
           >
             📍 {campaign.geo}
@@ -134,7 +176,9 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             flexShrink: 0,
           }}
         >
-          <span style={{ fontSize: "12px", color: "#6B7280" }}>Compare</span>
+          <span style={{ fontSize: "12px", color: "#6B7280", lineHeight: "1.4" }}>
+            Compare
+          </span>
           <button
             type="button"
             onClick={onToggleCompare}
@@ -169,12 +213,17 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
       {/* ── HEADER ROW 2 — italic disclaimer ── */}
       <div
         style={{
-          padding: "4px 24px 14px",
-          borderBottom: "1px solid #F3F4F6",
+          padding: "6px 24px 10px",
+          borderBottom: "1px solid #F0F0F0",
         }}
       >
         <span
-          style={{ fontSize: "11px", color: "#9CA3AF", fontStyle: "italic" }}
+          style={{
+            fontSize: "11px",
+            color: "#9CA3AF",
+            fontStyle: "italic",
+            lineHeight: "1.4",
+          }}
         >
           Format, frequency, timing and execution to be decided by the BU.
         </span>
@@ -184,195 +233,152 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "0",
-          padding: "24px",
+          gridTemplateColumns: "45% 55%",
+          minHeight: "280px",
         }}
       >
         {/* LEFT COLUMN */}
-        <div style={{ paddingRight: "24px" }}>
+        <div style={{ padding: "24px", borderRight: "1px solid #EBEBEB" }}>
           {/* Campaign Type */}
-          <div style={{ marginBottom: "18px" }}>
-            <div
-              style={{
-                fontSize: "11px",
-                fontWeight: "600",
-                color: "#7B00D4",
-                marginBottom: "2px",
-              }}
-            >
-              Campaign Type
-            </div>
-            <div style={{ fontSize: "13px", color: "#111827" }}>
-              {campaign.campaignType}
-            </div>
+          <div style={{ marginBottom: "16px" }}>
+            <div style={labelStyle}>Campaign Type</div>
+            <div style={valueStyle}>{campaign.campaignType}</div>
           </div>
 
           {/* Target Audience */}
-          <div style={{ marginBottom: "18px" }}>
+          <div style={{ marginBottom: "16px" }}>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "5px",
-                marginBottom: "2px",
+                marginBottom: "3px",
               }}
             >
-              <span
-                style={{
-                  fontSize: "11px",
-                  fontWeight: "600",
-                  color: "#7B00D4",
-                }}
-              >
-                Target Audience
-              </span>
+              <span style={labelStyle}>Target Audience</span>
               <Tooltip text="Highest click segment for this content type in this region.">
                 <InfoIcon />
               </Tooltip>
             </div>
-            <div style={{ fontSize: "13px", color: "#111827" }}>
-              {campaign.targetAudience}
-            </div>
+            <div style={valueStyle}>{campaign.targetAudience}</div>
           </div>
 
           {/* Strongest Signal Channel */}
-          <div style={{ marginBottom: "18px" }}>
-            <div
-              style={{
-                fontSize: "11px",
-                fontWeight: "600",
-                color: "#7B00D4",
-                marginBottom: "2px",
-              }}
-            >
-              Strongest Signal Channel
-            </div>
-            <div style={{ fontSize: "13px", color: "#111827" }}>
-              {campaign.strongestChannel}
-            </div>
+          <div style={{ marginBottom: "16px" }}>
+            <div style={labelStyle}>Strongest Signal Channel</div>
+            <div style={valueStyle}>{campaign.strongestChannel}</div>
           </div>
 
           {/* Peak Engagement Window */}
-          <div style={{ marginBottom: "18px" }}>
+          <div style={{ marginBottom: "16px" }}>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "5px",
-                marginBottom: "2px",
+                marginBottom: "3px",
               }}
             >
-              <span
-                style={{
-                  fontSize: "11px",
-                  fontWeight: "600",
-                  color: "#7B00D4",
-                }}
-              >
-                Peak Engagement Window
-              </span>
+              <span style={labelStyle}>Peak Engagement Window</span>
               <Tooltip text="Based on historical send data — not a scheduling recommendation.">
                 <InfoIcon />
               </Tooltip>
             </div>
-            <div style={{ fontSize: "13px", color: "#111827" }}>
-              {campaign.peakWindow}
-            </div>
+            <div style={valueStyle}>{campaign.peakWindow}</div>
           </div>
 
           {/* Timing Restriction */}
           <div>
-            <div
-              style={{
-                fontSize: "11px",
-                fontWeight: "600",
-                color: "#7B00D4",
-                marginBottom: "2px",
-              }}
-            >
-              Timing Restriction
-            </div>
-            <div style={{ fontSize: "13px", color: "#6B7280" }}>
+            <div style={labelStyle}>Timing Restriction</div>
+            <div style={{ fontSize: "13px", color: "#6B7280", lineHeight: "1.4" }}>
               {campaign.timingRestriction}
             </div>
           </div>
         </div>
 
         {/* RIGHT COLUMN */}
-        <div
-          style={{
-            paddingLeft: "24px",
-            borderLeft: "1px solid #F3F4F6",
-          }}
-        >
-          {/* 3 metrics row */}
+        <div style={{ padding: "24px", backgroundColor: "#F9FAFB" }}>
+          {/* Top — 3 metrics */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "16px",
-              marginBottom: "12px",
+              gap: "0",
+              marginBottom: "16px",
+              paddingBottom: "16px",
+              borderBottom: "1px solid #EBEBEB",
             }}
           >
-            <div>
+            <div style={{ padding: "0 16px 0 0" }}>
               <div
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
                   color: "#7B00D4",
-                  marginBottom: "4px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.03em",
+                  marginBottom: "6px",
+                  lineHeight: "1.4",
                 }}
               >
                 Open Rate
               </div>
               <div
                 style={{
-                  fontSize: "18px",
+                  fontSize: "22px",
                   fontWeight: "700",
                   color: "#111827",
+                  lineHeight: "1.2",
                 }}
               >
                 {campaign.openRate}
               </div>
             </div>
-            <div>
+            <div style={{ padding: "0 16px 0 0" }}>
               <div
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
                   color: "#7B00D4",
-                  marginBottom: "4px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.03em",
+                  marginBottom: "6px",
+                  lineHeight: "1.4",
                 }}
               >
                 Click Rate
               </div>
               <div
                 style={{
-                  fontSize: "18px",
+                  fontSize: "22px",
                   fontWeight: "700",
                   color: "#111827",
+                  lineHeight: "1.2",
                 }}
               >
                 {campaign.clickRate}
               </div>
             </div>
-            <div>
+            <div style={{ padding: "0" }}>
               <div
                 style={{
                   fontSize: "11px",
                   fontWeight: "600",
                   color: "#7B00D4",
-                  marginBottom: "4px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.03em",
+                  marginBottom: "6px",
+                  lineHeight: "1.4",
                 }}
               >
                 Signal Strength
               </div>
               <div
                 style={{
-                  fontSize: "18px",
+                  fontSize: "22px",
                   fontWeight: "700",
                   color: "#111827",
+                  lineHeight: "1.2",
                 }}
               >
                 {campaign.signalStrength}
@@ -380,37 +386,60 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             </div>
           </div>
 
-          {/* Org avg + Increase */}
+          {/* Middle — org stats */}
           <div
             style={{
-              fontSize: "12px",
-              color: "#6B7280",
-              marginBottom: "6px",
+              marginBottom: "16px",
+              paddingBottom: "16px",
+              borderBottom: "1px solid #EBEBEB",
             }}
           >
-            Organization avg —{" "}
-            <strong style={{ color: "#111827" }}>{campaign.orgAvg}</strong>
-          </div>
-          <div style={{ fontSize: "12px", color: "#111827" }}>
-            Increase —{" "}
-            <span style={{ color: "#16A34A" }}>{campaign.increase}</span>
+            <div
+              style={{
+                fontSize: "12px",
+                color: "#6B7280",
+                marginBottom: "4px",
+                lineHeight: "1.4",
+              }}
+            >
+              Organization avg —{" "}
+              <strong style={{ color: "#111827" }}>{campaign.orgAvg}</strong>
+            </div>
+            <div style={{ fontSize: "12px", color: "#111827", lineHeight: "1.4" }}>
+              Increase —{" "}
+              <span style={{ color: "#16A34A", fontWeight: "600" }}>
+                {campaign.increase}
+              </span>
+            </div>
           </div>
 
-          {/* Evidence Base */}
-          <div style={{ marginTop: "16px" }}>
+          {/* Bottom — evidence base */}
+          <div>
             <div
               style={{
                 fontSize: "11px",
                 fontWeight: "600",
                 color: "#7B00D4",
+                textTransform: "uppercase",
+                letterSpacing: "0.03em",
                 marginBottom: "6px",
+                lineHeight: "1.4",
               }}
             >
               Evidence Base
             </div>
-            <div style={{ fontSize: "11px", color: "#6B7280", lineHeight: "1.6" }}>
+            <div>
               {campaign.evidence.map((item, i) => (
-                <div key={i} style={{ marginBottom: "4px" }}>
+                <div
+                  key={i}
+                  style={{
+                    fontSize: "12px",
+                    color: "#6B7280",
+                    lineHeight: "1.6",
+                    display: "block",
+                    marginBottom: "2px",
+                  }}
+                >
                   {item}
                 </div>
               ))}
@@ -422,27 +451,19 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
       {/* ── FOOTER ── */}
       <div
         style={{
-          borderTop: "1px solid #F3F4F6",
+          borderTop: "1px solid #F0F0F0",
           padding: "24px",
+          backgroundColor: "#FFFFFF",
         }}
       >
         {/* AI Rationale */}
         <div style={{ marginBottom: "20px" }}>
-          <div
-            style={{
-              fontSize: "11px",
-              fontWeight: "600",
-              color: "#7B00D4",
-              marginBottom: "6px",
-            }}
-          >
-            AI Rationale
-          </div>
+          <div style={footerLabelStyle}>AI Rationale</div>
           <div
             style={{
               fontSize: "12px",
               color: "#374151",
-              lineHeight: "1.6",
+              lineHeight: "1.7",
             }}
           >
             {campaign.aiRationale}
@@ -450,17 +471,8 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
         </div>
 
         {/* Generated Subject Line */}
-        <div style={{ marginBottom: "20px" }}>
-          <div
-            style={{
-              fontSize: "11px",
-              fontWeight: "600",
-              color: "#7B00D4",
-              marginBottom: "6px",
-            }}
-          >
-            Generated Subject Line
-          </div>
+        <div style={{ marginBottom: "16px" }}>
+          <div style={footerLabelStyle}>Generated Subject Line</div>
           <input
             type="text"
             value={subjectLine}
@@ -475,20 +487,11 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "16px",
-            marginBottom: "20px",
+            marginBottom: "16px",
           }}
         >
           <div>
-            <div
-              style={{
-                fontSize: "11px",
-                fontWeight: "600",
-                color: "#7B00D4",
-                marginBottom: "6px",
-              }}
-            >
-              Generated Audience
-            </div>
+            <div style={footerLabelStyle}>Generated Audience</div>
             <input
               type="text"
               value={audienceEdit}
@@ -497,16 +500,7 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
             />
           </div>
           <div>
-            <div
-              style={{
-                fontSize: "11px",
-                fontWeight: "600",
-                color: "#7B00D4",
-                marginBottom: "6px",
-              }}
-            >
-              Generated Channel
-            </div>
+            <div style={footerLabelStyle}>Generated Channel</div>
             <input
               type="text"
               value={channelEdit}
@@ -518,17 +512,16 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
 
         {/* Subject Line Rationale */}
         <div style={{ marginBottom: "20px" }}>
-          <div
-            style={{
-              fontSize: "11px",
-              fontWeight: "600",
-              color: "#7B00D4",
-              marginBottom: "4px",
-            }}
-          >
+          <div style={{ ...footerLabelStyle, marginBottom: "4px" }}>
             Subject Line Rationale
           </div>
-          <div style={{ fontSize: "11px", color: "#6B7280" }}>
+          <div
+            style={{
+              fontSize: "12px",
+              color: "#6B7280",
+              lineHeight: "1.6",
+            }}
+          >
             {campaign.subjectLineRationale}
           </div>
         </div>
@@ -542,14 +535,16 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               border:
                 feedback === "good"
                   ? "1px solid #16A34A"
-                  : "1px solid #D1D5DB",
+                  : "1px solid #E5E7EB",
               borderRadius: "8px",
-              padding: "7px 18px",
+              padding: "7px 20px",
               fontSize: "12px",
-              backgroundColor: feedback === "good" ? "#DCFCE7" : "#FFFFFF",
+              fontWeight: "500",
+              backgroundColor: feedback === "good" ? "#F0FDF4" : "#FFFFFF",
               color: feedback === "good" ? "#16A34A" : "#374151",
               cursor: "pointer",
               fontFamily: "inherit",
+              lineHeight: "1.4",
             }}
           >
             {feedback === "good" ? "✓ Looks Good" : "Looks Good"}
@@ -563,15 +558,17 @@ export default function CampaignCard({ campaign, isCompare, onToggleCompare }) {
               border:
                 feedback === "not-relevant"
                   ? "1px solid #DC2626"
-                  : "1px solid #D1D5DB",
+                  : "1px solid #E5E7EB",
               borderRadius: "8px",
-              padding: "7px 18px",
+              padding: "7px 20px",
               fontSize: "12px",
+              fontWeight: "500",
               backgroundColor:
-                feedback === "not-relevant" ? "#FEE2E2" : "#FFFFFF",
+                feedback === "not-relevant" ? "#FEF2F2" : "#FFFFFF",
               color: feedback === "not-relevant" ? "#DC2626" : "#374151",
               cursor: "pointer",
               fontFamily: "inherit",
+              lineHeight: "1.4",
             }}
           >
             {feedback === "not-relevant" ? "✕ Not Relevant" : "Not Relevant"}

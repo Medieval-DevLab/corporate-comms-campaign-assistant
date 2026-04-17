@@ -20,7 +20,7 @@ export default function App() {
       <Navbar />
       <div
         style={{
-          maxWidth: "900px",
+          maxWidth: "1000px",
           margin: "0 auto",
           padding: "40px 48px",
         }}
