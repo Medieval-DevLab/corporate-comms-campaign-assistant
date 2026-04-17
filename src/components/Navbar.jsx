@@ -16,7 +16,7 @@ export default function Navbar() {
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
-          src="/accenture-logo.png"
+          src="/Accenture logo.png"
           alt="Accenture"
           style={{ height: "32px", width: "auto", objectFit: "contain" }}
         />
