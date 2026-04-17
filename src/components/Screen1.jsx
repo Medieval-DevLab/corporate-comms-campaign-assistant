@@ -202,7 +202,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
               color: "#9CA3AF",
               fontStyle: "italic",
               marginTop: "10px",
-              marginBottom: "28px",
+              marginBottom: "32px",
             }}
           >
             The more context you provide, the stronger the signal.
@@ -215,7 +215,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "24px",
-            marginBottom: "24px",
+            marginBottom: "28px",
           }}
         >
           <MultiSelectDropdown
@@ -240,7 +240,7 @@ export default function Screen1({ onGenerate, onHowItWorks }) {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "24px",
-            marginBottom: "24px",
+            marginBottom: "28px",
           }}
         >
           <MultiSelectDropdown
