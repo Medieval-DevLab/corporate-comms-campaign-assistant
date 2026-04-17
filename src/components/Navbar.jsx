@@ -29,8 +29,8 @@ export default function Navbar() {
         />
         <span
           style={{
-            fontSize: "17px",
-            fontWeight: "600",
+            fontSize: "20px",
+            fontWeight: "700",
             color: "#111827",
             whiteSpace: "nowrap",
           }}
