@@ -115,6 +115,35 @@ export const campaigns = [
     subjectLineRationale:
       "Specific number ('Five ways') + promise of resources drives both opens and clicks",
   },
+  {
+    id: 5,
+    label: "Campaign 5",
+    title: '"Our Planet, Our Commitment" — Sustainability Update',
+    geo: "Global · Strategy & Green Community",
+    campaignType: "Notification",
+    targetAudience: "Strategy org + Green Accenture community members",
+    strongestChannel: "Mailer Notification",
+    peakWindow: "Wednesday 10am",
+    timingRestriction:
+      "Accenture Sustainability Report 2025 — 34% open, 8% click Social Impact Day Sign-Ups Open — 33% open, 7% click",
+    openRate: "34-38%",
+    clickRate: "7-11%",
+    signalStrength: "70%",
+    orgAvg: "28%",
+    increase: "↑ +13pp",
+    evidence: [
+      "Introducing Flexible Fridays — 41% open, 9% click",
+      "Return-to-Office Guidelines — 38% open, 8% click",
+    ],
+    aiRationale:
+      "Lowest post volume but HIGHEST reactions per post (21.0) — signals a highly passionate niche audience. A targeted notification to the Strategy org and sustainability community will outperform a broad send. Quality over reach is the correct metric here.",
+    subjectLine:
+      "FY25 sustainability progress: where we are and what comes next",
+    generatedAudience: "Strategy org + Green Accenture community members",
+    generatedChannel: "Mailer Notification — targeted send",
+    subjectLineRationale:
+      "Progress framing ('where we are') with forward momentum ('what comes next') drives curiosity opens",
+  },
 ];
 
 export const comparisonDimensions = [
